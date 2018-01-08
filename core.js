@@ -1,7 +1,8 @@
 $(document).ready(function () {
   $("#submitButton").click(function() {
     // Take the text box and store input
-    var addressArray = $("#searchQuery").value.split(" ");
+    console.log($("#searchQuery").val());
+    var addressArray = $("#searchQuery").val().split(" ");
     var suite = getSuite(addressArray);
     var houseNumber = getHouseNumber(addressArray);
     var apiUrl = assembleApiUrl(suite,houseNumber);
@@ -31,7 +32,7 @@ function suiteExists(addressArray){
   var tmpSuite = parseInt(addressArray[0]);
   var tmpHouse = parseInt(addressArray[1]);
   var returnValue;
-  if (typeof(tmpSuite) == "number" && typeof(tmpHouse) == "number") {}
+  if (typeof(tmpSuite) == "number" && typeof(tmpHouse) == "number") {
     returnValue = true;
   }
   else {
@@ -56,12 +57,12 @@ function dataApiCall(apiUrl) {
       "$$app_token" : "jePwrVZqpjgGtNlplWa52l07Q"
     }
   }).done(function(data) {
-    // alert("Retrieved " + data.length + " records from the dataset!");
-    // console.log(data);
-    displayPropertyValue();
+    alert("Retrieved " + data.length + " records from the dataset!");
+    console.log(data);
   });
+
 }
 
-function displayPropertyValue() {
-
+function displayPropertyValue(data) {
+  console.log(data);
 }
