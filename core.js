@@ -1,11 +1,8 @@
 $(document).ready(function () {
   $("#submitButton").click(function() {
-    // Take the text box and store input
     console.log($("#searchQuery").val());
     var addressArray = $("#searchQuery").val().split(" ");
-    var suite = getSuite(addressArray);
-    var houseNumber = getHouseNumber(addressArray);
-    var apiUrl = assembleApiUrl(suite,houseNumber);
+    var apiUrl = assembleApiUrl(addressArray);
     dataApiCall(apiUrl);
   })
 })
@@ -41,10 +38,21 @@ function suiteExists(addressArray){
   return returnValue;
 }
 
-
-function assembleApiUrl(suite, houseNumber) {
+function assembleApiUrl(addressArray) {
+  var suite = getSuite(addressArray);
+  console.log("suite: " + suite + "\n");
+  var houseNumber = getHouseNumber(addressArray);
+  console.log("house_number: " + houseNumber + "\n");
   var dataSetUrl = "https://data.edmonton.ca/resource/3pdp-qp95.json";
-  var apiUrl = dataSetUrl + "?suite=" + suite + "&house_number=" + houseNumber;
+  var apiUrl;
+  if (suite.length > 0)
+  {
+    apiUrl = dataSetUrl + "?suite=" + suite + "&house_number=" + houseNumber;
+  }
+  else
+  {
+    apiUrl = dataSetUrl + "?house_number=" + houseNumber;
+  }
   return apiUrl;
 }
 
