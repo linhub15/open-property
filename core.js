@@ -1,48 +1,22 @@
 $(document).ready(function () {
   $("#submitButton").click(function() {
     console.log($("#searchQuery").val());
-    var addressArray = $("#searchQuery").val().split(" ");
-    var apiUrl = assembleApiUrl(addressArray);
+    var addressArray = getAddressArray();
+    var apiUrl = assembleApiUrl(addressArray[0], addressArray[1], addressArray[2]);
     dataApiCall(apiUrl);
   })
 })
 
-function getSuite(addressArray){
-  if (suiteExists(addressArray))
-  {
-    return addressArray[0];
-  }
+function getAddressArray()
+{
+  var suite = $("#suite").val();
+  var houseNumber = $("#houseNumber").val();
+  var street = $("#street").val();
+  var addressArray = [suite, houseNumber, street];
+  return addressArray;
 }
 
-function getHouseNumber(addressArray){
-  if (suiteExists(addressArray))
-  {
-    return addressArray[1];
-  }
-  else 
-  {
-    return addressArray[0];
-  }
-}
-
-function suiteExists(addressArray){
-  var tmpSuite = parseInt(addressArray[0]);
-  var tmpHouse = parseInt(addressArray[1]);
-  var returnValue;
-  if (typeof(tmpSuite) == "number" && typeof(tmpHouse) == "number") {
-    returnValue = true;
-  }
-  else {
-    returnValue = false;
-  }
-  return returnValue;
-}
-
-function assembleApiUrl(addressArray) {
-  var suite = getSuite(addressArray);
-  console.log("suite: " + suite + "\n");
-  var houseNumber = getHouseNumber(addressArray);
-  console.log("house_number: " + houseNumber + "\n");
+function assembleApiUrl(suite, houseNumber, street) {
   var dataSetUrl = "https://data.edmonton.ca/resource/3pdp-qp95.json";
   var apiUrl;
   if (suite.length > 0)
@@ -68,7 +42,6 @@ function dataApiCall(apiUrl) {
     alert("Retrieved " + data.length + " records from the dataset!");
     console.log(data);
   });
-
 }
 
 function displayPropertyValue(data) {
