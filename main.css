@@ -41,7 +41,7 @@ header {
 	padding-bottom:30px;
 }
 
-.search-result {
+#search-result {
 	grid-area: search-result;
 	background:#005E33;
 	padding-top:30px;

@@ -1,36 +1,23 @@
 $(document).ready(function () {
   $("#submitButton").click(function() {
-    console.log($("#searchQuery").val());
-    var addressArray = getAddressArray();
-    var apiUrl = assembleApiUrl(addressArray[0], addressArray[1], addressArray[2]);
-    dataApiCall(apiUrl);
+    var address = getAddress($("#suite"),$("#houseNumber"),$("#street"));
+    var apiUrl = assembleApiUrl(address);
+    dataApiCall(encodeURI(apiUrl));
   })
 })
 
-function getAddressArray()
+function getAddress(suiteTextbox, houseNumberTextbox, streetTextbox)
 {
-  var suite = $("#suite").val();
-  var houseNumber = $("#houseNumber").val();
-  var street = $("#street").val();
-  var addressArray = [suite, houseNumber, street];
-  return addressArray;
+  return new Address(suiteTextbox.val(), houseNumberTextbox.val(), streetTextbox.val());
 }
 
-function assembleApiUrl(suite, houseNumber, street) {
+function assembleApiUrl(address) {
   var dataSetUrl = "https://data.edmonton.ca/resource/3pdp-qp95.json";
-  var apiUrl;
-  if (suite.length > 0)
-  {
-    apiUrl = dataSetUrl + "?suite=" + suite + "&house_number=" + houseNumber;
-  }
-  else
-  {
-    apiUrl = dataSetUrl + "?house_number=" + houseNumber;
-  }
-  return apiUrl;
+  return dataSetUrl + address.apiUrl();
 }
 
 function dataApiCall(apiUrl) {
+  console.log(apiUrl);
   $.ajax({
     url: apiUrl,
     type: "GET",
@@ -41,9 +28,33 @@ function dataApiCall(apiUrl) {
   }).done(function(data) {
     alert("Retrieved " + data.length + " records from the dataset!");
     console.log(data);
+    displayPropertyValue(data);
   });
 }
 
 function displayPropertyValue(data) {
-  console.log(data);
+  console.log(JSON.stringify(data));
+  $("#search-result").text(JSON.stringify(data));
+}
+
+
+function Address(suite, houseNumber, street) {
+  this.suite = suite;
+  this.houseNumber = houseNumber;
+  this.street = street;
+  this.hasSuite = function () {
+    if (this.suite.length > 0) { return true; }
+    else { return false; }
+  };
+  this.apiUrl = function () {
+    if (this.hasSuite()) {
+      return "?suite=" + this.suite +
+              "&house_number=" + this.houseNumber +
+              "&street_name=" + this.street;
+    }
+    else {
+      return "?house_number=" + this.houseNumber + 
+              "&street_name=" + this.street;
+    }
+  }
 }
