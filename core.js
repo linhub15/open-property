@@ -34,7 +34,10 @@ function dataApiCall(apiUrl) {
 
 function displayPropertyValue(data) {
   console.log(JSON.stringify(data));
-  $("#search-result").text(JSON.stringify(data));
+  var totalAssessment = data[0].total_asmt;
+  //console.log(data[0].total_asmt);
+  //$("#search-result").text(JSON.stringify(data));
+  $("#search-result").text("Your preoperty is assessed to be: $" + totalAssessment);
 }
 
 
