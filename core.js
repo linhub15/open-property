@@ -1,47 +1,52 @@
+var API_DATA = {
+      "$limit" : 100,
+      "$$app_token" : "jePwrVZqpjgGtNlplWa52l07Q"
+    };
+var DATA_SET_URL = "https://data.edmonton.ca/resource/3pdp-qp95.json";
 $(document).ready(function () {
 
   $("#submitButton").click(function() {
-    FindPropertyValue();
-  });
+    findPropertyValue();
+  })
 
   $("body").keyup(function(event) {
     if (event.which == 13) {
-      FindPropertyValue();
+      findPropertyValue();
     }
-  });
+  })
+
+  $("#addressBtn").click(function() {
+    getStreetByAddress($("#houseNumber"));
+  })
 })
 
 
 // FUNCTION DECLARATIONS
-function FindPropertyValue() {
-    ForceUpperCase($("#street"));
-    var apiUrl = assembleApiUrl();
-    dataApiCall(encodeURI(apiUrl));
-}
-
-function ForceUpperCase(inputControl) {
-  inputControl.val(inputControl.val().toUpperCase());
-} 
-function assembleApiUrl() {
+function findPropertyValue() {
   var suite = $("#suite");
   var houseNumber = $("#houseNumber");
   var street = $("#street");
-  var address = new Address(suite.val(), houseNumber.val(), street.val().toUpperCase());
-  var dataSetUrl = "https://data.edmonton.ca/resource/3pdp-qp95.json";
-  return dataSetUrl + address.apiUrl();
+  forceUpperCase(street);
+  var apiUrl = assembleApiUrl(suite, houseNumber, street);
+  apiGetPropertyValue(encodeURI(apiUrl));
 }
 
-function dataApiCall(apiUrl) {
+function forceUpperCase(street) {
+  street.val(street.val().toUpperCase());
+}
+
+function assembleApiUrl(suite, houseNumber, street) {
+  var address = new FullAddress(suite.val(), houseNumber.val(), street.val().toUpperCase());
+  return DATA_SET_URL + address.apiUrl();
+}
+
+function apiGetPropertyValue(apiUrl) {
   console.log(apiUrl);
   $.ajax({
     url: apiUrl,
     type: "GET",
-    data: {
-      "$limit" : 100,
-      "$$app_token" : "jePwrVZqpjgGtNlplWa52l07Q"
-    },
+    data: API_DATA,
     success: function(data) {
-      //alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
       displayPropertyValue(data);
     }
@@ -49,14 +54,15 @@ function dataApiCall(apiUrl) {
 }
 
 function displayPropertyValue(data) {
-  console.log(JSON.stringify(data));
   var totalAssessment = data[0].total_asmt;
-  //console.log(data[0].total_asmt);
-  //$("#search-result").text(JSON.stringify(data));
-  $("#search-result").text("Your preoperty is assessed to be: $" + totalAssessment);
+  $("#propertyValue").text("$" + totalAssessment);
 }
 
-function Address(suite, houseNumber, street) {
+function displayFailMessage() {
+
+}
+
+function FullAddress(suite, houseNumber, street) {
   this.suite = suite;
   this.houseNumber = houseNumber;
   this.street = street;
@@ -77,3 +83,23 @@ function Address(suite, houseNumber, street) {
   };
 }
 
+
+function getStreetByAddress(houseNumber) {
+  var url = buildApiUrl(houseNumber);
+  apiGetStreetList(url);
+}
+function buildApiUrl(houseNumber) {
+  var url = DATA_SET_URL + "?house_number=" + houseNumber.val();
+  return url;
+}
+function apiGetStreetList(apiUrl) {
+  console.log(apiUrl);
+  $.ajax({
+    url: apiUrl,
+    type: "GET",
+    data: API_DATA,
+    success: function(data) {
+      console.log(data);
+    }
+  });
+}
