@@ -1,17 +1,32 @@
 $(document).ready(function () {
+
   $("#submitButton").click(function() {
-    var address = getAddress($("#suite"),$("#houseNumber"),$("#street"));
-    var apiUrl = assembleApiUrl(address);
-    dataApiCall(encodeURI(apiUrl));
-  })
+    FindPropertyValue();
+  });
+
+  $("body").keyup(function(event) {
+    if (event.which == 13) {
+      FindPropertyValue();
+    }
+  });
 })
 
-function getAddress(suiteTextbox, houseNumberTextbox, streetTextbox)
-{
-  return new Address(suiteTextbox.val(), houseNumberTextbox.val(), streetTextbox.val());
+
+// FUNCTION DECLARATIONS
+function FindPropertyValue() {
+    ForceUpperCase($("#street"));
+    var apiUrl = assembleApiUrl();
+    dataApiCall(encodeURI(apiUrl));
 }
 
-function assembleApiUrl(address) {
+function ForceUpperCase(inputControl) {
+  inputControl.val(inputControl.val().toUpperCase());
+} 
+function assembleApiUrl() {
+  var suite = $("#suite");
+  var houseNumber = $("#houseNumber");
+  var street = $("#street");
+  var address = new Address(suite.val(), houseNumber.val(), street.val().toUpperCase());
   var dataSetUrl = "https://data.edmonton.ca/resource/3pdp-qp95.json";
   return dataSetUrl + address.apiUrl();
 }
@@ -24,11 +39,12 @@ function dataApiCall(apiUrl) {
     data: {
       "$limit" : 100,
       "$$app_token" : "jePwrVZqpjgGtNlplWa52l07Q"
+    },
+    success: function(data) {
+      //alert("Retrieved " + data.length + " records from the dataset!");
+      console.log(data);
+      displayPropertyValue(data);
     }
-  }).done(function(data) {
-    alert("Retrieved " + data.length + " records from the dataset!");
-    console.log(data);
-    displayPropertyValue(data);
   });
 }
 
@@ -39,7 +55,6 @@ function displayPropertyValue(data) {
   //$("#search-result").text(JSON.stringify(data));
   $("#search-result").text("Your preoperty is assessed to be: $" + totalAssessment);
 }
-
 
 function Address(suite, houseNumber, street) {
   this.suite = suite;
@@ -59,5 +74,6 @@ function Address(suite, houseNumber, street) {
       return "?house_number=" + this.houseNumber + 
               "&street_name=" + this.street;
     }
-  }
+  };
 }
+

@@ -1,29 +1,16 @@
 @media only screen and (min-width: 760px) {
 	body {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
 		display: grid;
 		grid-template-rows: 50% auto auto auto fr1; 
 		grid-template-areas:
 		"header"
-		"search-bar"
+		"search-section"
 		"search-result"
 		"stats"
 		"footer";
 	}
 }
 
-.wrapper{
-	/*	margin-right: auto; /* 1 */
-	/*	margin-left:  auto; /* 1 */
-
-	/*	max-width: 960px; /* 2 */
-
-	/*	padding-right: 10px; /* 3 */
-	/*	padding-left:  10px; /* 3 */
-}
 
 header {
 	grid-area: header;
@@ -32,10 +19,8 @@ header {
 	padding:5em;
 }
 
-.search-bar {
-	grid-area: search-bar;
-	display:grid;
-	grid-template-columns: repeat(3, 1fr);
+.search-section {
+	grid-area: search-section;
 	background:#22735B;
 	padding-top:30px;
 	padding-bottom:30px;
@@ -78,15 +63,4 @@ footer {
 #submitButton {
 	width:80px;
 	height:46px;
-}
-
-.search-input {
-	justify-self:end;
-	grid-column:2;
-	/*	border:#333 1px solid;*/
-}
-
-.search-button {
-	justify-self:start;
-	grid-column:3;
 }
