@@ -26,11 +26,22 @@ function findPropertyValue() {
   var suite = $("#suite");
   var houseNumber = $("#houseNumber");
   var street = $("#street");
-  forceUpperCase(street);
-  var apiUrl = assembleApiUrl(suite, houseNumber, street);
-  apiGetPropertyValue(encodeURI(apiUrl));
+  if (validate(houseNumber, street)) {
+    forceUpperCase(street);
+    var apiUrl = assembleApiUrl(suite, houseNumber, street);
+    apiGetPropertyValue(encodeURI(apiUrl));
+  }
 }
 
+function validate(houseNumber, street) {
+  var msg = "";
+  if (houseNumber.val().length == 0 || street.val().length == 0 ){
+    msg = "Please enter an address and street";
+    displayFailMessage(msg);
+    return false;
+  }
+  return true;
+}
 function forceUpperCase(street) {
   street.val(street.val().toUpperCase());
 }
@@ -48,7 +59,12 @@ function apiGetPropertyValue(apiUrl) {
     data: API_DATA,
     success: function(data) {
       console.log(data);
-      displayPropertyValue(data);
+      if (data.length > 0) {
+        displayPropertyValue(data);
+      }
+      else {
+        displayFailMessage("Hmm, looks like we couldn't find that property");
+      }
     }
   });
 }
@@ -58,8 +74,8 @@ function displayPropertyValue(data) {
   $("#propertyValue").text("$" + totalAssessment);
 }
 
-function displayFailMessage() {
-
+function displayFailMessage(message) {
+  $("#propertyValue").text(message);
 }
 
 function FullAddress(suite, houseNumber, street) {
