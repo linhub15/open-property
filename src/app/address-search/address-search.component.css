@@ -1,0 +1,8 @@
+.address-card{
+    margin: auto;
+    max-width: 800px;
+}
+
+.address-card > * {
+    width: 100%;
+}
