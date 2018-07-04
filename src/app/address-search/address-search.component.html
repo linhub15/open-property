@@ -1,26 +1,26 @@
 <mat-card class="address-card">
 
-  <mat-card-header>
-      <mat-card-title>{{title}}</mat-card-title>
-  </mat-card-header>
-
-  <mat-form-field>
-    <input matInput #suite maxlength="6" placeholder="Suite">
-    <mat-hint align="end">{{suite.value?.length || 0}}/6</mat-hint>
-  </mat-form-field>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
   
-  <mat-form-field>
-    <input matInput #house maxlength="10" placeholder="House Number">
-    <mat-hint align="end">{{house.value?.length || 0}}/10</mat-hint>
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput #suite maxlength="6" placeholder="Suite">
+      <mat-hint align="end">{{suite.value?.length || 0}}/6</mat-hint>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput #house maxlength="10" placeholder="House Number">
+      <mat-hint align="end">{{house.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput #street maxlength="20" placeholder="Street Number">
+      <mat-hint align="end">{{street.value?.length || 0}}/20</mat-hint>
+    </mat-form-field>
   
-  <mat-form-field>
-    <input matInput #street maxlength="20" placeholder="Street Number">
-    <mat-hint align="end">{{street.value?.length || 0}}/20</mat-hint>
-  </mat-form-field>
-
-
-  <button mat-raised-button color="primary">Search</button>
+    <button mat-raised-button color="primary" 
+            (click)="submitSearch(suite.value, house.value, street.value)">Search</button>
 
 </mat-card>
 
