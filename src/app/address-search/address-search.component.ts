@@ -16,5 +16,6 @@ export class AddressSearchComponent implements OnInit {
 
   submitSearch(suite: number,house: number, street: string):void {
     let address = new PropertyAddress(suite, house, street);
+    
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule, MatCardModule, MatToolbarModule, MatButtonModule } from '@angular/material';
 
 
@@ -17,6 +18,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatInputModule,
     MatCardModule,
     MatToolbarModule,
