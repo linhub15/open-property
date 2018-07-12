@@ -22,9 +22,12 @@ export class AddressSearchComponent implements OnInit {
 
   submitSearch(suite: number,house: number, street: string):void {
     let address = new PropertyAddress(suite, house, street);
-    this.assessmentService.getAssessments()
-                    .subscribe((assessments: Assessment[]) => {
-                      this.assessments = assessments;
-                    });
+    if (address.hasHouse() && address.hasStreet()) {
+      this.assessmentService.getAssessments(address)
+        .subscribe((assessments: Assessment[]) => {
+          this.assessments = assessments;
+          console.log(this.assessments);
+        });
+    }
   }
 }
