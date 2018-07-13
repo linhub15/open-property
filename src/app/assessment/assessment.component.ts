@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PropertyAddress } from '../property-address';
 import { AssessmentService } from '../assessment.service';
 import { Assessment } from '../assessment';
 
@@ -10,15 +9,15 @@ import { Assessment } from '../assessment';
 })
 export class AssessmentComponent implements OnInit {
 
-  public assessments: Assessment[];
-  constructor(private assessmentService: AssessmentService) { }
-
   @Input() suite: number;
   @Input() house: number;
   @Input() street: string;
   @Input() assessmentValue: number;
 
+  public assessments: Assessment[];
 
-  
-  ngOnInit() { }
+  constructor(private assessmentService: AssessmentService) { }
+
+  ngOnInit() {
+  }
 }

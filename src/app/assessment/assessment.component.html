@@ -1,3 +1,4 @@
-<p>
-  {{ assessmentValue }}
-</p>
+  <div *ngIf="assessmentValue > 0">
+    <p>Your property is worth</p>
+    <h1>${{assessmentValue}}</h1>
+  </div>
