@@ -17,16 +17,14 @@ export class AssessmentService {
 
   getAssessments(address: PropertyAddress): Observable<Assessment[]> {
     let queryUri: string;
-    console.log(address);
-    // Case 1: Apartment
+
     if (address.isApartment()) {
       queryUri = address.makeApartmentUri(this.assessmentUrl);
     }
-    // Case 2: House
+
     else if (address.isHouse()) {
       queryUri = address.makeHouseUri(this.assessmentUrl);
     }
-    console.log(queryUri);
     return this.callAssessmentsApi(queryUri);
   }
 
