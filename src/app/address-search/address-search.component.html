@@ -5,17 +5,17 @@
     </mat-card-header>
   
     <mat-form-field>
-      <input matInput #suite maxlength="6" placeholder="Suite">
+      <input matInput #suite maxlength="6" placeholder="Suite" (keyup.enter)="submitSearch(suite.value, house.value, street.value)">
       <mat-hint align="end">{{suite.value?.length || 0}}/6</mat-hint>
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput #house maxlength="10" placeholder="House Number">
+      <input matInput #house maxlength="10" placeholder="House Number" (keyup.enter)="submitSearch(suite.value, house.value, street.value)">
       <mat-hint align="end">{{house.value?.length || 0}}/10</mat-hint>
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput #street maxlength="20" placeholder="Street Number">
+      <input matInput #street maxlength="20" placeholder="Street Number" (keyup.enter)="submitSearch(suite.value, house.value, street.value)">
       <mat-hint align="end">{{street.value?.length || 0}}/20</mat-hint>
     </mat-form-field>
   
