@@ -13,7 +13,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
 
 
 const appRoutes: Routes = [
-  { path: 'address-search', component: AddressSearchComponent },
+  { path: 'address-search/', component: AddressSearchComponent },
   { path: 'results', component: AssessmentComponent },
   { path: '', redirectTo: '/address-search', pathMatch: 'full' }
 ];
