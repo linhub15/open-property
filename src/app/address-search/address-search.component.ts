@@ -13,20 +13,27 @@ export class AddressSearchComponent implements OnInit {
 
   title: string = "Address Search";
   public assessments: Assessment[]
-  assessmentValue: number;
+  assessment: Assessment;
+  found: boolean;
 
   constructor(private assessmentService: AssessmentService) { }
 
   ngOnInit() {
   }
 
-  submitSearch(suite: number,house: number, street: string):void {
-    let address = new PropertyAddress(suite, house, street);
+  submitSearch(suite: string,house: string, street: string):void {
+    let address = new PropertyAddress(suite.trim(), house.trim(), street.trim());
     if (address.hasHouse() && address.hasStreet()) {
       this.assessmentService.getAssessments(address)
         .subscribe((assessments: Assessment[]) => {
           this.assessments = assessments;
-          this.assessmentValue = assessments[0].total_asmt;
+          this.assessment = assessments[0];
+          if (assessments.length > 0) {
+            this.found = true;
+          }
+          else {
+            this.found = false;
+          }
         });
     }
   }

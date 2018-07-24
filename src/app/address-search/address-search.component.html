@@ -22,7 +22,7 @@
     <button mat-raised-button color="primary" 
             (click)="submitSearch(suite.value, house.value, street.value)">Search</button>
 
-    <app-assessment [suite]="suite.value" [house]="house.value" [street]="street.value" [assessmentValue]="assessmentValue"></app-assessment>
+    <app-assessment [assessment]="assessment" [found]="found"></app-assessment>
 </mat-card>
 
 

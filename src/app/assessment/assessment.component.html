@@ -1,4 +1,7 @@
-  <div *ngIf="assessmentValue > 0">
-    <p>Your property's assessment value is</p>
-    <h1>${{assessmentValue}}</h1>
-  </div>
+<div *ngIf="found == true; else notFound">
+  <p>Your property's assessment value is</p>
+  <h1>${{assessment.total_asmt}}</h1>
+  {{ assessment | json }}
+</div>
+
+<ng-template #notFound><h2>None</h2></ng-template>

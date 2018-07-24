@@ -9,12 +9,8 @@ import { Assessment } from '../assessment';
 })
 export class AssessmentComponent implements OnInit {
 
-  @Input() suite: number;
-  @Input() house: number;
-  @Input() street: string;
-  @Input() assessmentValue: number;
-
-  public assessments: Assessment[];
+  @Input() found: boolean;
+  @Input() assessment: Assessment;
 
   constructor(private assessmentService: AssessmentService) { }
 
