@@ -7,11 +7,11 @@ export class PropertyAddress {
     this.suite = suite;
     this.house = house;
     this.street = street.toUpperCase();
-    // this.street = this.street.replace('AVE', 'AVENUE');
-    // this.street = this.street.replace('ST', 'STREET');
-    // if (!this.street.includes(' NW')) {
-    //   this.street = this.street.concat(' NW');
-    // }
+    this.street = this.street.replace('AVE', 'AVENUE');
+    this.street = this.street.replace('ST', 'STREET');
+    if (!this.street.includes(' NW')) {
+      this.street = this.street.concat(' NW');
+    }
   }
 
   isApartment(): boolean {
