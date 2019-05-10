@@ -23,7 +23,7 @@ export class AddressSearchComponent implements OnInit {
 
   submitSearch(suite: string, house: string, street: string): void {
     let address = new PropertyAddress(suite.trim(), house.trim(), street.trim());
-    if (address.hasHouse() && address.hasStreet()) {
+    if (address.house && address.street) {
       this.assessmentService.getAssessments(address)
         .subscribe((assessments: Assessment[]) => {
           this.assessments = assessments;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Assessment } from './assessment.model';
 import { PropertyAddress } from './property-address.model';
@@ -18,15 +18,14 @@ export class AssessmentService {
 
     if (address.isApartment()) {
       queryUri = address.makeApartmentUri(this.assessmentUrl);
-    }
-
-    else if (address.isHouse()) {
+    } else if (address.isHouse()) {
       queryUri = address.makeHouseUri(this.assessmentUrl);
     }
     return this.callAssessmentsApi(queryUri);
   }
 
   callAssessmentsApi(uri: string): Observable<Assessment[]> {
+    console.log(uri);
     return this.http.get<Assessment[]>(uri);
   }
 }
