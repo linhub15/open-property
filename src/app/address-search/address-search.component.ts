@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PropertyAddress } from '../property-address';
-import { AssessmentService } from '../assessment.service';
-import { Assessment } from '../assessment';
+import { AssessmentService } from '../core/assessment.service';
+import { Assessment } from '../core/assessment';
 import { Observable } from 'rxjs';
 
 @Component({

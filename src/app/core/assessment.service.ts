@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Assessment } from './assessment';
-import { PropertyAddress } from './property-address';
+import { PropertyAddress } from '../property-address';
 
 
 @Injectable({
