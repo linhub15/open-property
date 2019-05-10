@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AddressSearchComponent } from './address-search/address-search.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AssessmentComponent } from './assessment/assessment.component';
+import { CoreModule } from './core/core.module';
 
 
 const appRoutes: Routes = [
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

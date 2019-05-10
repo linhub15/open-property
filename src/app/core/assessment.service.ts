@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { Assessment } from './assessment';
-import { PropertyAddress } from '../property-address';
+import { Assessment } from './assessment.model';
+import { PropertyAddress } from './property-address.model';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AssessmentService {
 
-  protected assessmentUrl: string = 'https://data.edmonton.ca/resource/3pdp-qp95.json';
+  protected assessmentUrl = 'https://data.edmonton.ca/resource/3pdp-qp95.json';
 
   constructor(private http: HttpClient) { }
 

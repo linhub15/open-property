@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PropertyAddress } from '../property-address';
+import { PropertyAddress } from '../core/property-address.model';
 import { AssessmentService } from '../core/assessment.service';
-import { Assessment } from '../core/assessment';
+import { Assessment } from '../core/assessment.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,7 +21,7 @@ export class AddressSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitSearch(suite: string,house: string, street: string):void {
+  submitSearch(suite: string, house: string, street: string): void {
     let address = new PropertyAddress(suite.trim(), house.trim(), street.trim());
     if (address.hasHouse() && address.hasStreet()) {
       this.assessmentService.getAssessments(address)
