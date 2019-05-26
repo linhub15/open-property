@@ -1,16 +1,19 @@
-# YegPropertyValueFinder
+# Edmonton Property Assessments - City of Edmonton Open Data
 
-Help find out your property assessed value
+Find your property's assessed value.
 
 City of Edmonton Open Data endpoint: `https://data.edmonton.ca/resource/3pdp-qp95.json`
 
 ## Development
 
-Run `ng serve`
+Run `npm install` (Only if freshly cloned)
+Run `npm start`
 
 ## Production
 
+1. Run `npm run build`
+* `/dist/` directory is deliberately included in source control for hosting
 
-1. Run `ng build --prod`
-* `// TODO` make npm build automatically run `ng build --prod` and copy `/dist/index.html` into `/dist/404.html`
-* `/dist/` directory is deliberately not ignored in `.gitignore` so it can be hosted on Cloud Cannon
+## Test Production Build files
+* cd to dist/yeg-property-assessment
+* run an http server e.g. `python3 -m http.server`

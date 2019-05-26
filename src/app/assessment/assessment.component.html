@@ -1,7 +1,8 @@
-<div *ngIf="found == true; else notFound">
-  <p>Your property's assessment value is</p>
-  <h1>${{assessment.total_asmt}}</h1>
-  {{ assessment | json }}
+<div *ngIf="properties.length">
+  <h2>Results</h2>
+  <div *ngFor="let property of properties">
+    <p>{{ property.address }} - {{ property.assessedValue }}</p>
+  </div>
 </div>
 
-<ng-template #notFound><h2>None Found: Note if you don't specify NW or SW I assume NW</h2></ng-template>
+

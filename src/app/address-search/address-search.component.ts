@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PropertyAddress } from '../core/property-address.model';
+import { Component, OnInit } from '@angular/core';
 import { AssessmentService } from '../core/assessment.service';
-import { Assessment } from '../core/assessment.model';
 import { Observable } from 'rxjs';
+import { Property } from '../core/property.model';
 
 @Component({
   selector: 'app-address-search',
@@ -11,30 +10,13 @@ import { Observable } from 'rxjs';
 })
 export class AddressSearchComponent implements OnInit {
 
-  title: string = "Address Search";
-  public assessments: Assessment[]
-  assessment: Assessment;
-  found: boolean;
+  public properties$: Observable<Property[]>;
 
   constructor(private assessmentService: AssessmentService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  submitSearch(suite: string, house: string, street: string): void {
-    let address = new PropertyAddress(suite.trim(), house.trim(), street.trim());
-    if (address.house && address.street) {
-      this.assessmentService.getAssessments(address)
-        .subscribe((assessments: Assessment[]) => {
-          this.assessments = assessments;
-          this.assessment = assessments[0];
-          if (assessments.length > 0) {
-            this.found = true;
-          }
-          else {
-            this.found = false;
-          }
-        });
-    }
+  search(searchValue: string) {
+    this.properties$ = this.assessmentService.fetchProperties(searchValue);
   }
 }
