@@ -17,6 +17,7 @@ export class AddressSearchComponent implements OnInit {
   ngOnInit() { }
 
   search(searchValue: string) {
+    searchValue = searchValue.toUpperCase();
     this.properties$ = this.assessmentService.fetchProperties(searchValue);
   }
 }
