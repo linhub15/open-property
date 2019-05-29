@@ -1,0 +1,8 @@
+<div *ngIf="properties$ | async as properties">
+  <h2>Results</h2>
+  <div *ngFor="let property of properties">
+    <p (click)="select(property)">{{ property.address }} -
+      {{ property.assessedValue }}
+    </p>
+  </div>
+</div>

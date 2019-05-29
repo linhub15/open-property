@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AssessmentService } from '../core/assessment.service';
 import { Observable } from 'rxjs';
-import { Property } from '../core/property.model';
 
 @Component({
   selector: 'app-address-search',
@@ -9,15 +8,24 @@ import { Property } from '../core/property.model';
   styleUrls: ['./address-search.component.css']
 })
 export class AddressSearchComponent implements OnInit {
+<<<<<<< HEAD
 
   public properties$: Observable<Property[]>;
+=======
+  public searchValue$: Observable<string>;
+>>>>>>> a0ecf7c... single-view implemented
 
   constructor(private assessmentService: AssessmentService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.searchValue$ = this.assessmentService.searchValue$;
+  }
 
   search(searchValue: string) {
-    searchValue = searchValue.toUpperCase();
-    this.properties$ = this.assessmentService.fetchProperties(searchValue);
+    this.assessmentService.update(searchValue);
+  }
+
+  clear() {
+    this.assessmentService.clear();
   }
 }

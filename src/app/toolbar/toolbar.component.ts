@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('github',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/github-circle-white.svg'));
+    iconRegistry.addSvgIcon('data',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/database-solid.svg'));
   }
+
+  ngOnInit() { }
 
 }

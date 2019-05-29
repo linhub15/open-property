@@ -1,8 +1,4 @@
-<div *ngIf="properties.length">
-  <h2>Results</h2>
-  <div *ngFor="let property of properties">
-    <p>{{ property.address }} - {{ property.assessedValue }}</p>
-  </div>
-</div>
-
-
+<mat-card *ngIf="property$ | async as property" class="centered-card">
+  <p>{{ property.address }}</p>
+  <p>The assessed value {{property.assessedValue}}</p>
+</mat-card>

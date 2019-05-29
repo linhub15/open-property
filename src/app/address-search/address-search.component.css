@@ -1,14 +1,3 @@
-.address-card{
-    margin: auto;
-    margin-top: 3rem;
-    max-width: 800px;
-}
-
-.address-card > * {
-    width: 100%;
-    margin: auto;
-}
-
-.address-card > button {
-    margin-top: 2rem;
+.centered-card mat-form-field {
+  width: 100%;
 }
