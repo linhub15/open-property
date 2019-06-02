@@ -8,14 +8,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./address-search.component.css']
 })
 export class AddressSearchComponent implements OnInit {
-<<<<<<< HEAD
-
-  public properties$: Observable<Property[]>;
-=======
   public searchValue$: Observable<string>;
->>>>>>> a0ecf7c... single-view implemented
 
-  constructor(private assessmentService: AssessmentService) { }
+  constructor(private assessmentService: AssessmentService) {}
 
   ngOnInit() {
     this.searchValue$ = this.assessmentService.searchValue$;

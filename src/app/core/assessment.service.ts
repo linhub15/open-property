@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Assessment } from './assessment.model';
@@ -55,7 +55,7 @@ export class AssessmentService {
   private fetchAssessments(searchValue: string): Observable<Assessment[]> {
     return !/\s/g.test(searchValue)
       ? this.noSpaceQuery(searchValue)
-      : this.handleHasSpace(searchValue);
+      : this.hasSpaceQuery(searchValue);
   }
 
   private noSpaceQuery(searchValue: string): Observable<Assessment[]> {
@@ -72,31 +72,19 @@ export class AssessmentService {
 
   private hasSpaceQuery(searchValue: string): Observable<Assessment[]> {
     const values = searchValue.split(/\s/);
-    const suite = values.length > 0 ? values[0] : '';
-    const house = values.length > 1 ? values[1] : '';
-    const street = values.length > 2 ? values.slice(2).join(' ') : '';
-    return this._consumer
-      .query()
-      .where(
-        `suite='${suite}'`,
-        and(`house_number like '${house}%'`),
-        and(`street_name like '${street}%'`)
-      )
-      .limit(5)
-      .getRows<Assessment>();
-  }
 
-  private isHouse(searchValue: string): Observable<Assessment[]> {
-    const firstSpace = searchValue.indexOf(' ');
-    const houseNumber = searchValue.substring(0, firstSpace);
-    const streetName = searchValue.substring(firstSpace + 1);
     return this._consumer
       .query()
       .where(
-        `house_number='${houseNumber}'`,
-        and(`street_name like '${streetName}%'`)
+        `suite='${values[0]}'`,
+        and(`house_number like '${values[1]}%'`),
+        and(`street_name like '${values.slice(2).join(' ')}%'`),
+        or(
+          `house_number='${values[0]}'`,
+          and(`street_name like '${values.slice(1).join(' ')}%'`)
+        )
       )
-      .limit(5)
+      .limit(10)
       .getRows<Assessment>();
   }
 }

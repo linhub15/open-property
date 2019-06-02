@@ -3,7 +3,7 @@
 // Socrati Query Language
 // https://dev.socrata.com/docs/queries/
 
-import { Observable, from } from "rxjs";
+import { Observable, from } from 'rxjs';
 
 interface SoqlComponents {
   select: string;
@@ -11,21 +11,16 @@ interface SoqlComponents {
   limit: string;
 }
 
-interface WhereClause {
-  column: string;
-  clause: string;
-}
-
 export interface SodaOptions {
   datasetId?: string;
 }
 
-export function and(clause: string) {
-  return `AND ${clause}`;
+export function and(...clause: string[]) {
+  return `AND (${clause.join(' ')})`;
 }
 
-export function or(clause: string) {
-  return `OR ${clause}`;
+export function or(...clause: string[]) {
+  return `OR (${clause.join(' ')})`;
 }
 
 export class Consumer {
@@ -42,7 +37,7 @@ export class Consumer {
   query(datasetId: string = this.options.datasetId) {
     if (!datasetId) {
       throw new Error(
-        "datasetId is not valid! Please supply a datasetId, eg 3pdp-qp95"
+        'datasetId is not valid! Please supply a datasetId, eg 3pdp-qp95'
       );
     }
     return new Query(datasetId, this);
@@ -53,7 +48,7 @@ class Connection {
   constructor(public dataSite: string) {
     if (!/^[a-z0-9-_.]+(:[0-9]+)?$/i.test(dataSite)) {
       throw new Error(
-        "dataSite does not appear to be valid! Please supply a domain name, eg data.seattle.gov"
+        'dataSite does not appear to be valid! Please supply a domain name, eg data.seattle.gov'
       );
     }
   }
@@ -78,7 +73,7 @@ class Query {
 
   constructor(private _datasetId: string, private _consumer: Consumer) {
     if (!_datasetId) {
-      throw new Error("datasetId is required");
+      throw new Error('datasetId is required');
     }
   }
 
@@ -114,20 +109,22 @@ class Query {
 
   private buildSoqlQuery(): string {
     const query: SoqlComponents = {
-      select: this._select.length > 0 ? this._select.join(", ") : null,
-      where: this._where.length > 0 ? this._where.join(" ") : this._where[0],
+      select: this._select.length > 0 ? this._select.join(', ') : null,
+      where: this._where.length > 0 ? this._where.join(' ') : this._where[0],
       limit: this._limit.length || this._limit
     };
     return this.serializeSoqlComponents(query);
   }
 
   private serializeSoqlComponents(components: SoqlComponents): string {
-    let str = [];
-    for (let key of Object.keys(components || {})) {
+    const str = [];
+    for (const key of Object.keys(components || {})) {
       const val = components[key];
-      if (!val) continue;
+      if (!val) {
+        continue;
+      }
       str.push(`$${encodeURIComponent(key)}=${encodeURIComponent(val)}`);
     }
-    return str.join("&");
+    return str.join('&');
   }
 }
