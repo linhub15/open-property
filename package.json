@@ -1,14 +1,13 @@
 {
   "name": "yeg-property-assessment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
     "postbuild": "cp-cli dist/yeg-property-assessment/index.html dist/yeg-property-assessment/404.html",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
