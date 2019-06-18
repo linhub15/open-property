@@ -13,7 +13,7 @@ export class ToolbarComponent implements OnInit {
     iconRegistry.addSvgIcon('github',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/github-circle-white.svg'));
     iconRegistry.addSvgIcon('data',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/database-solid.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/chart-bar-regular.svg'));
   }
 
   ngOnInit() { }

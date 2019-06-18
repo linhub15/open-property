@@ -12,8 +12,14 @@ Run `npm start`
 ## Production
 
 1. Run `npm run build`
-* `/dist/` directory is deliberately included in source control for hosting
+
+- `/dist/` directory is deliberately included in source control for hosting
 
 ## Test Production Build files
-* cd to dist/yeg-property-assessment
-* run an http server e.g. `python3 -m http.server`
+
+- cd to dist/yeg-property-assessment
+- run an http server e.g. `python3 -m http.server`
+
+## Credits
+
+- Icons from Font Awesome [license](https://fontawesome.com/license)
