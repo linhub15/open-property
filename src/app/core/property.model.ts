@@ -1,7 +1,7 @@
-import { Assessment } from "./assessment.model";
+import { Assessment } from './assessment.model';
+import {} from 'googlemaps';
 
 export class Property {
-
   constructor(assessment: Assessment) {
     this._assessment = assessment;
   }
@@ -12,11 +12,11 @@ export class Property {
     let address = '';
     if (this._assessment.suite) {
       address += `${this._assessment.suite} `;
-    };
-    if (this._assessment.house_number) { 
+    }
+    if (this._assessment.house_number) {
       address += `${this._assessment.house_number} `;
-    };
-    address += this._assessment.street_name && this._assessment.street_name
+    }
+    address += this._assessment.street_name && this._assessment.street_name;
     return address;
   }
 
@@ -24,4 +24,10 @@ export class Property {
     return `$${this._assessment.total_asmt}`;
   }
 
+  get latLng(): google.maps.LatLng {
+    return new google.maps.LatLng(
+      this._assessment.latitude,
+      this._assessment.longitude
+    );
+  }
 }
