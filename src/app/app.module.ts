@@ -18,6 +18,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { CoreModule } from './core/core.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { MapComponent } from './map/map.component';
 
 const appRoutes: Routes = [
   { path: 'address-search', component: AddressSearchComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     AddressSearchComponent,
     ToolbarComponent,
     AssessmentComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
