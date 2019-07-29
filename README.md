@@ -19,6 +19,7 @@ Run `npm start`
 
 - cd to dist/yeg-property-assessment
 - run an http server e.g. `python3 -m http.server`
+- or run `npm run http-server` from root directory
 
 ## Manage Google Api Key
 

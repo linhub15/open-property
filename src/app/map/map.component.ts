@@ -9,7 +9,7 @@ import {} from 'googlemaps';
 })
 export class MapComponent implements OnInit {
   @Input() location: google.maps.LatLng;
-  @ViewChild('map') mapElement: any;
+  @ViewChild('map', { static: true }) mapElement: any;
 
   map: google.maps.Map;
 
