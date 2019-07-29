@@ -20,6 +20,10 @@ Run `npm start`
 - cd to dist/yeg-property-assessment
 - run an http server e.g. `python3 -m http.server`
 
+## Manage Google Api Key
+
+- https://console.cloud.google.com/apis/credentials?project=yeg-property-assessment
+
 ## Credits
 
 - Icons from Font Awesome [license](https://fontawesome.com/license)

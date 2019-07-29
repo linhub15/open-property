@@ -1,13 +1,14 @@
 {
   "name": "yeg-property-assessment",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
     "postbuild": "cp-cli dist/yeg-property-assessment/index.html dist/yeg-property-assessment/404.html",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "http-server": "http-server ./dist/yeg-property-assessment/"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "cp-cli": "^2.0.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.2.0",
