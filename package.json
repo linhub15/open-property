@@ -7,7 +7,7 @@
     "postbuild": "cp-cli dist/yeg-property-assessment/index.html dist/yeg-property-assessment/404.html",
     "test": "ng test",
     "lint": "ng lint",
-    "http-server": "http-server ./dist/yeg-property-assessment/"
+    "prod": "http-server ./dist/yeg-property-assessment/"
   },
   "private": true,
   "dependencies": {

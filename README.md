@@ -6,20 +6,15 @@ City of Edmonton Open Data endpoint: `https://data.edmonton.ca/resource/3pdp-qp9
 
 ## Development
 
-Run `npm install` (Only if freshly cloned)
-Run `npm start`
+`yarn` - restore dependencies
 
-## Production
+`yarn start` - starts dev server
 
-1. Run `npm run build`
+`yarn build` - builds production files into `./dist`
 
 - `/dist/` directory is deliberately included in source control for hosting
 
-## Test Production Build files
-
-- cd to dist/yeg-property-assessment
-- run an http server e.g. `python3 -m http.server`
-- or run `npm run http-server` from root directory
+`yarn run prod` - test production files
 
 ## Manage Google Api Key
 
