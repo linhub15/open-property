@@ -8,14 +8,20 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon('github',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/github-circle-white.svg'));
-    iconRegistry.addSvgIcon('data',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/chart-bar-regular.svg'));
+    iconRegistry.addSvgIcon(
+      'github',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/github-circle-white.svg'
+      )
+    );
+    iconRegistry.addSvgIcon(
+      'data',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/chart-bar-regular.svg'
+      )
+    );
   }
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

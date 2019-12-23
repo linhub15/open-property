@@ -4,11 +4,7 @@ import { AssessmentService } from './assessment.service';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: [
-    AssessmentService
-  ]
+  imports: [CommonModule],
+  providers: [AssessmentService]
 })
-export class CoreModule { }
+export class CoreModule {}

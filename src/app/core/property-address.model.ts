@@ -15,24 +15,22 @@ export class PropertyAddress {
   }
 
   isApartment(): boolean {
-    return this.suite && this.house && this.street
-      ? true : false;
+    return this.suite && this.house && this.street ? true : false;
   }
 
   isHouse(): boolean {
-    return !this.suite && this.house && this.street
-      ? true : false;
+    return !this.suite && this.house && this.street ? true : false;
   }
 
   makeApartmentUri(baseUrl: string): string {
-    const suite = this.suite.replace('\s', '+');
-    const house = this.house.replace('\s', '+');
+    const suite = this.suite.replace('s', '+');
+    const house = this.house.replace('s', '+');
     const street = this.street.replace(' ', '+');
     return `${baseUrl}?suite=${suite}&house_number=${house}&street_name=${street}`;
   }
 
   makeHouseUri(baseUrl: string): string {
-    const house = this.house.replace('\s', '+');
+    const house = this.house.replace('s', '+');
     const street = this.street.replace(/\s/, '+');
     return `${baseUrl}?house_number=${house}&street_name=${street}`;
   }
