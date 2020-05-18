@@ -5,6 +5,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "postbuild": "cp-cli dist/yeg-property-assessment/index.html dist/yeg-property-assessment/404.html",
+    "gh-pages": "ng build --prod --output-path docs",
+    "postgh-pages": "cp-cli docs/index.html docs/404.html",
     "test": "ng test",
     "lint": "ng lint",
     "prod": "http-server ./dist/yeg-property-assessment/"
