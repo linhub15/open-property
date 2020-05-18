@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-toolbar',
@@ -12,13 +14,13 @@ export class ToolbarComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'github',
       sanitizer.bypassSecurityTrustResourceUrl(
-        `../../assets/icons/github-circle-white.svg`
+        `${environment.deployUrl}/assets/icons/github-circle-white.svg`
       )
     );
     iconRegistry.addSvgIcon(
       'data',
       sanitizer.bypassSecurityTrustResourceUrl(
-        '../../assets/icons/chart-bar-regular.svg'
+        `${environment.deployUrl}/assets/icons/chart-bar-regular.svg`
       )
     );
   }
