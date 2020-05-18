@@ -12,9 +12,9 @@ City of Edmonton Open Data endpoint: `https://data.edmonton.ca/resource/3pdp-qp9
 
 `yarn build` - builds production files into `./dist`
 
-- `/dist/` directory is deliberately included in source control for hosting
+- `/dist` and `/docs` directory is deliberately included in source control for hosting
 
-`yarn prod` - test production files
+`yarn prod` - runs local web server to test production files
 
 ## Manage Google Api Key
 

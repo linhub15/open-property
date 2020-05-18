@@ -12,13 +12,13 @@ export class ToolbarComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'github',
       sanitizer.bypassSecurityTrustResourceUrl(
-        'assets/icons/github-circle-white.svg'
+        `../../assets/icons/github-circle-white.svg`
       )
     );
     iconRegistry.addSvgIcon(
       'data',
       sanitizer.bypassSecurityTrustResourceUrl(
-        'assets/icons/chart-bar-regular.svg'
+        '../../assets/icons/chart-bar-regular.svg'
       )
     );
   }
