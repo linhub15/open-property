@@ -10,9 +10,9 @@ City of Edmonton Open Data endpoint: `https://data.edmonton.ca/resource/3pdp-qp9
 
 `yarn start` - starts dev server
 
-`yarn build` - builds production files into `./dist`
+`yarn build` - builds for github pages into `./docs`
 
-- `/dist` and `/docs` directory is deliberately included in source control for hosting
+- `/docs` directory is deliberately included in source control for hosting
 
 `yarn prod` - runs local web server to test production files
 
