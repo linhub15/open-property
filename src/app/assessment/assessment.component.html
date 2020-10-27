@@ -1,5 +1,5 @@
 <mat-card *ngIf="property$ | async as property" class="centered-card">
   <p>{{ property.address }}</p>
-  <p>The assessed value {{property.assessedValue}}</p>
+  <p>The assessed value ${{property.assessedValue}}</p>
   <app-map [location]="property.latLng"></app-map>
 </mat-card>
