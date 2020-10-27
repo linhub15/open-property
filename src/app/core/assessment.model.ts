@@ -3,7 +3,6 @@ export class Assessment {
   public suite: string;
   public house_number: string;
   public street_name: string;
-  public total_asmt: number;
   public tax_class: string;
   public neighbourhood_id: number;
   public neighbourhood: string;
