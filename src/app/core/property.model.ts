@@ -22,7 +22,7 @@ export class Property {
   }
 
   get assessedValue(): string {
-    return `$${this._assessment.total_asmt}`;
+    return `${this._assessment.assessed_value}`;
   }
 
   get latLng(): google.maps.LatLng {

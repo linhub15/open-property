@@ -11,4 +11,5 @@ export class Assessment {
   public garage: string;
   public latitude: number;
   public longitude: number;
+  public assessed_value: number;
 }
