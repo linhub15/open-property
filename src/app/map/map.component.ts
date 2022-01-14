@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
-import {} from 'googlemaps';
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',

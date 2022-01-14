@@ -1,5 +1,4 @@
 import { Assessment } from './assessment.model';
-import {} from 'googlemaps';
 
 export class Property {
   constructor(assessment: Assessment) {
