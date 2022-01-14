@@ -29,3 +29,13 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+
+
+# Yarn Zero-Installs
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
