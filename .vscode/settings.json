@@ -1,0 +1,9 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "search.exclude": {
+    ".yarn": true,
+    "**/bower_components": true,
+    "**/node_modules": true
+  }
+}
