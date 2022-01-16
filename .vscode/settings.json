@@ -4,6 +4,7 @@
   "search.exclude": {
     ".yarn": true,
     "**/bower_components": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "yarn.lock": true
   }
 }

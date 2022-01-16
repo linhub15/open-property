@@ -9,7 +9,7 @@ import { Consumer, and, or } from './ng-soda-client';
 @Injectable()
 export class AssessmentService {
   private _consumer = new Consumer('data.edmonton.ca', {
-    datasetId: '3pdp-qp95'
+    datasetId: 'qi6a-xuwt'
   });
   private _searchValue = new BehaviorSubject<string>('');
   private _selectedProperty = new BehaviorSubject<Property>(null);
