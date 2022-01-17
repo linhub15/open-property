@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../core/property.service';
-import { Property } from '../core/property.model';
+import { PropertyHistory } from '../core/property-history.model';
 import { Observable } from 'rxjs';
+import { PropertyInfo } from '../core/property-info.model';
 
 @Component({
   selector: 'app-assessment',
@@ -10,18 +10,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./assessment.component.scss']
 })
 export class AssessmentComponent implements OnInit {
-  public account: number;
-  public property$: Observable<Property>;
+  public property$: Observable<PropertyInfo>;
+  public histories$: Observable<PropertyHistory[]>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private propertyService: PropertyService
-  ) {}
+  constructor(private propertyService: PropertyService) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.property$ = this.propertyService.selectedProperty$;
-    this.route.queryParams.subscribe(params => {
-      this.account = params['a'];
-    });
+    this.histories$ = this.propertyService.historicalProperties$;
   }
 }

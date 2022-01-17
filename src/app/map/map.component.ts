@@ -7,28 +7,27 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   @Input() location: google.maps.LatLng;
-  @ViewChild('map', { static: true }) mapElement: any;
 
-  map: google.maps.Map;
+  options: google.maps.MapOptions;
+  markerOptions: google.maps.MarkerOptions = { draggable: false };
 
   constructor() {}
 
   ngOnInit() {
-    const mapProp: google.maps.MapOptions = {
+    this.options = {
       center: this.location,
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
     };
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
-    this.setMarker(this.location);
+    // this.setMarker(this.location);
   }
 
   private setMarker(location: google.maps.LatLng) {
     new google.maps.Marker({
-      position: location,
-      map: this.map
+      position: location
+      // map: this.map
     });
   }
 }

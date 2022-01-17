@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
-import { AddressSearchComponent } from './address-search/address-search.component';
+import { SearchComponent } from './search/search.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { CoreModule } from './core/core.module';
@@ -20,15 +20,15 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { MapComponent } from './map/map.component';
 
 const appRoutes: Routes = [
-  { path: 'address-search', component: AddressSearchComponent },
-  { path: '', redirectTo: '/address-search', pathMatch: 'full' },
-  { path: '**', redirectTo: '/address-search', pathMatch: 'full' }
+  { path: 'search', component: SearchComponent },
+  { path: '', redirectTo: '/search', pathMatch: 'full' },
+  { path: '**', redirectTo: '/search', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddressSearchComponent,
+    SearchComponent,
     ToolbarComponent,
     AssessmentComponent,
     SearchResultsComponent,

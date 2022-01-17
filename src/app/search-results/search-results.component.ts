@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { PropertyService } from '../core/property.service';
 import { Observable } from 'rxjs';
-import { Property } from '../core/property.model';
+import { SearchService } from '../core/search.service';
+import { PropertyInfo } from '../core/property-info.model';
 
 @Component({
   selector: 'app-search-results',
@@ -9,15 +10,19 @@ import { Property } from '../core/property.model';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent {
-  public properties$: Observable<Property[]>;
+  public properties$: Observable<PropertyInfo[]>;
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(
+    private searchService: SearchService,
+    private propertyService: PropertyService
+  ) {}
 
   ngOnInit() {
-    this.properties$ = this.propertyService.properties$;
+    this.properties$ = this.searchService.searchResults$;
   }
 
-  select(property: Property) {
+  select(property: PropertyInfo) {
     this.propertyService.select(property);
+    this.searchService.clear();
   }
 }
