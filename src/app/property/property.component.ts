@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { PropertyInfo } from '../core/property-info.model';
 
 @Component({
-  selector: 'app-assessment',
-  templateUrl: './assessment.component.html',
-  styleUrls: ['./assessment.component.scss']
+  selector: 'app-property',
+  templateUrl: './property.component.html',
+  styleUrls: ['./property.component.scss']
 })
-export class AssessmentComponent implements OnInit {
+export class PropertyComponent implements OnInit {
   public property$: Observable<PropertyInfo>;
   public histories$: Observable<PropertyHistory[]>;
 

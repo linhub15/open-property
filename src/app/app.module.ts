@@ -14,7 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { AssessmentComponent } from './assessment/assessment.component';
+import { PropertyComponent } from './property/property.component';
 import { CoreModule } from './core/core.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MapComponent } from './map/map.component';
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     AppComponent,
     SearchComponent,
     ToolbarComponent,
-    AssessmentComponent,
+    PropertyComponent,
     SearchResultsComponent,
     MapComponent
   ],

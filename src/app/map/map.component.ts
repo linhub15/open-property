@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PropertyService } from '../core/property.service';
 
 @Component({
   selector: 'app-map',
@@ -8,26 +9,22 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 export class MapComponent implements OnInit {
   @Input() location: google.maps.LatLng;
 
-  options: google.maps.MapOptions;
+  zoom = 17;
+  center: google.maps.LatLng;
+
+  mapOptions: google.maps.MapOptions = {
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    draggable: false
+  };
+
   markerOptions: google.maps.MarkerOptions = { draggable: false };
 
-  constructor() {}
+  constructor(private propertyService: PropertyService) {}
 
   ngOnInit() {
-    this.options = {
-      center: this.location,
-      zoom: 17,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      disableDefaultUI: true
-    };
-
-    // this.setMarker(this.location);
-  }
-
-  private setMarker(location: google.maps.LatLng) {
-    new google.maps.Marker({
-      position: location
-      // map: this.map
-    });
+    this.propertyService.selectedProperty$.subscribe(
+      property => (this.center = property.latLng)
+    );
   }
 }
