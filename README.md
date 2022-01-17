@@ -1,8 +1,10 @@
-# Edmonton Property Assessments - City of Edmonton Open Data
+# Edmonton Property Assessments (Upgrade coming)
 
 Find your property's assessed value.
 
-City of Edmonton Open Data endpoint: `https://data.edmonton.ca/resource/3pdp-qp95.json`
+Public data comes from City of Edmonton's open data portal.
+
+- `https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Historical-/qi6a-xuwt`
 
 ## Development
 

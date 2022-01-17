@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Property } from '../core/property.model';
-import { AssessmentService } from '../core/assessment.service';
+import { PropertyService } from '../core/property.service';
 import { Observable } from 'rxjs';
+import { Property } from '../core/property.model';
 
 @Component({
   selector: 'app-search-results',
@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
 export class SearchResultsComponent {
   public properties$: Observable<Property[]>;
 
-  constructor(private assessmentService: AssessmentService) {}
+  constructor(private propertyService: PropertyService) {}
 
   ngOnInit() {
-    this.properties$ = this.assessmentService.properties$;
+    this.properties$ = this.propertyService.properties$;
   }
 
   select(property: Property) {
-    this.assessmentService.select(property);
+    this.propertyService.select(property);
   }
 }

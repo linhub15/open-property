@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AssessmentService } from '../core/assessment.service';
+import { PropertyService } from '../core/property.service';
 import { Property } from '../core/property.model';
 import { Observable } from 'rxjs';
 
@@ -15,11 +15,11 @@ export class AssessmentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private assessmentService: AssessmentService
+    private propertyService: PropertyService
   ) {}
 
-  ngOnInit() {
-    this.property$ = this.assessmentService.selectedProperty$;
+  async ngOnInit() {
+    this.property$ = this.propertyService.selectedProperty$;
     this.route.queryParams.subscribe(params => {
       this.account = params['a'];
     });

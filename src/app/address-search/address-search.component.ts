@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AssessmentService } from '../core/assessment.service';
+import { PropertyService } from '../core/property.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,17 +10,17 @@ import { Observable } from 'rxjs';
 export class AddressSearchComponent implements OnInit {
   public searchValue$: Observable<string>;
 
-  constructor(private assessmentService: AssessmentService) {}
+  constructor(private propertyService: PropertyService) {}
 
   ngOnInit() {
-    this.searchValue$ = this.assessmentService.searchValue$;
+    this.searchValue$ = this.propertyService.searchValue$;
   }
 
   search(searchValue: string) {
-    this.assessmentService.update(searchValue);
+    this.propertyService.search(searchValue);
   }
 
   clear() {
-    this.assessmentService.clear();
+    this.propertyService.clear();
   }
 }

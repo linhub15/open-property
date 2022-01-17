@@ -96,6 +96,9 @@ class Query {
     return this;
   }
 
+  /**
+   * @returns https://data.edmonton.ca/resource/qi6a-xuwt.json
+   */
   getUrl() {
     const dataSite = this._consumer.dataSite;
     const path = `/resource/${this._datasetId}.json`;
