@@ -1,6 +1,6 @@
-# Edmonton Property Assessments (Upgrade coming)
+# Open Property
 
-Find your property's assessed value.
+A simple tool to see a property assessment data. (Currently only supports Edmonton, Alberta)
 
 Public data comes from City of Edmonton's open data portal.
 
@@ -14,13 +14,11 @@ Public data comes from City of Edmonton's open data portal.
 
 `yarn build` - builds production files into `./dist`
 
-- `/dist/` directory is deliberately included in source control for hosting
-
-`yarn run prod` - test production files
+`yarn prod` - test production files
 
 ## Manage Google Api Key
 
-- https://console.cloud.google.com/apis/credentials?project=yeg-property-assessment
+- https://console.cloud.google.com/apis/credentials
 
 ## Credits
 

@@ -1,13 +1,11 @@
 {
-  "name": "yeg-property-assessment",
+  "name": "open-property",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "postbuild": "cp-cli dist/yeg-property-assessment/index.html dist/yeg-property-assessment/404.html",
-    "test": "ng test",
     "lint": "ng lint",
-    "prod": "http-server ./dist/yeg-property-assessment/"
+    "test-prod": "http-server ./dist"
   },
   "private": true,
   "dependencies": {
