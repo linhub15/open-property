@@ -1,5 +1,4 @@
 # https://github.com/browserslist/browserslist#queries
-> 0.5%
-last 2 versions
-Firefox ESR
-not dead
+last 1 Chrome version
+last 1 Firefox version
+not IE 11
