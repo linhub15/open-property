@@ -43,8 +43,7 @@ export class SearchService {
           Object.setPrototypeOf(property, new PropertyInfo())
         )
       )
-    )
-      .subscribe(properties => this.#searchResults.next(properties));
+    ).subscribe(properties => this.#searchResults.next(properties));
   }
 
   private fetchAssessments(searchValue: string): Observable<PropertyInfo[]> {

@@ -17,6 +17,6 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit() {
     this.property$ = this.propertyService.selectedProperty$;
-    this.histories$ = this.propertyService.historicalProperties$;
+    this.histories$ = this.propertyService.propertyHistories$;
   }
 }

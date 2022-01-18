@@ -2972,6 +2972,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chart.js@npm:^3.7.0":
+  version: 3.7.0
+  resolution: "chart.js@npm:3.7.0"
+  checksum: 050d675d15742e873ec10aa3c77fecd43d16062a5f188615795a08158b8aed591f98f2f067adf5d3f6b710093ea3a754977b2418fb30ff0babdeabbcf6898e5e
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.0.0, chokidar@npm:^3.5.1, chokidar@npm:^3.5.2":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
@@ -5858,6 +5865,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.15":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
+  languageName: node
+  linkType: hard
+
 "lodash.debounce@npm:^4.0.8":
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
@@ -6302,6 +6316,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ng2-charts@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "ng2-charts@npm:3.0.8"
+  dependencies:
+    lodash-es: ^4.17.15
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": ">=11.0.0"
+    "@angular/core": ">=11.0.0"
+    chart.js: ^3.4.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: 4c88eb6642ae8aeb70855b1fc75d05815c6abad2c814732017e5b75266dd2d4067b9af89a2a25cb34dd5c1637304c0bbdd1d0cf39e9659fcbb83c7e8b0d47167
+  languageName: node
+  linkType: hard
+
 "nice-napi@npm:^1.0.2":
   version: 1.0.2
   resolution: "nice-napi@npm:1.0.2"
@@ -6635,6 +6664,7 @@ __metadata:
     "@types/jasmine": ~3.6.0
     "@types/jasminewd2": ^2.0.6
     "@types/node": ^12.11.1
+    chart.js: ^3.7.0
     codelyzer: ^6.0.0
     core-js: ^2.6.9
     cp-cli: ^2.0.0
@@ -6646,6 +6676,7 @@ __metadata:
     karma-coverage-istanbul-reporter: ~3.0.2
     karma-jasmine: ~4.0.0
     karma-jasmine-html-reporter: ^1.5.0
+    ng2-charts: ^3.0.8
     prettier: ^1.19.1
     rxjs: ^6.5.2
     ts-node: ~5.0.1

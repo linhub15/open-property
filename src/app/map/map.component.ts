@@ -1,16 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PropertyService } from '../core/property.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent {
   @Input() location: google.maps.LatLng;
 
   zoom = 17;
-  center: google.maps.LatLng;
 
   mapOptions: google.maps.MapOptions = {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -19,12 +17,4 @@ export class MapComponent implements OnInit {
   };
 
   markerOptions: google.maps.MarkerOptions = { draggable: false };
-
-  constructor(private propertyService: PropertyService) {}
-
-  ngOnInit() {
-    this.propertyService.selectedProperty$.subscribe(
-      property => (this.center = property.latLng)
-    );
-  }
 }

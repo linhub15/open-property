@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { PropertyHistory } from './property-history.model';
-import { Consumer, and, or } from './ng-soda-client';
+import { Consumer } from './ng-soda-client';
 import { PropertyInfo } from './property-info.model';
 
 @Injectable()
@@ -13,14 +13,14 @@ export class PropertyService {
   });
 
   #selectedProperty = new BehaviorSubject<PropertyInfo>(null);
-  #historicalProperties = new BehaviorSubject<PropertyHistory[]>(null);
+  #propertyHistories = new BehaviorSubject<PropertyHistory[]>(null);
 
   get selectedProperty$(): Observable<PropertyInfo> {
     return this.#selectedProperty.asObservable();
   }
 
-  get historicalProperties$(): Observable<PropertyHistory[]> {
-    return this.#historicalProperties.asObservable();
+  get propertyHistories$(): Observable<PropertyHistory[]> {
+    return this.#propertyHistories.asObservable();
   }
 
   select(property: PropertyInfo): void {
@@ -31,15 +31,17 @@ export class PropertyService {
   private fetchPropertyHistory(accountNumber: string) {
     this.fetchProperties(accountNumber)
     .pipe( // Add the methods from the class to plain object
-      map(properties =>
-        Array.from(properties, property =>
-          Object.setPrototypeOf(property, new PropertyHistory())
+      map(histories =>
+        Array.from(histories, history =>
+          Object.setPrototypeOf(history, new PropertyHistory())
         )
+      ),
+      map((histories:PropertyHistory[]) => histories
+        .sort((a,b) => a.assessment_year - b.assessment_year)
       )
     )
-    .subscribe(properties => this.#historicalProperties.next(properties));
+    .subscribe(histories => this.#propertyHistories.next(histories));
   }
-
 
   private fetchProperties(accountNumber: string): Observable<PropertyHistory[]> {
     return this.#consumer

@@ -18,3 +18,13 @@ body {
     margin-right: auto;
   }
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+}

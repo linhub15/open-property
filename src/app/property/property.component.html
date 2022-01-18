@@ -1,7 +1,13 @@
 <mat-card *ngIf="property$ | async as property" class="centered-card">
   {{ property.address }}
   <p *ngIf="histories$ | async as histories">
-    The assessed value is ${{ histories[0].assessed_value }}
+    The assessed value for
+    {{ histories[histories.length - 1].assessment_year }} is ${{
+      histories[histories.length - 1].assessed_value
+    }}
   </p>
-  <app-map [location]="property.latLng"></app-map>
+  <div class="row">
+    <app-map class="col" [location]="property.latLng"></app-map>
+    <app-chart class="col"></app-chart>
+  </div>
 </mat-card>

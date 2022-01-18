@@ -20,7 +20,9 @@
     "@angular/platform-browser": "^13.1.2",
     "@angular/platform-browser-dynamic": "^13.1.2",
     "@angular/router": "^13.1.2",
+    "chart.js": "^3.7.0",
     "core-js": "^2.6.9",
+    "ng2-charts": "^3.0.8",
     "rxjs": "^6.5.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

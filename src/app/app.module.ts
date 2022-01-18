@@ -18,6 +18,8 @@ import { PropertyComponent } from './property/property.component';
 import { CoreModule } from './core/core.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MapComponent } from './map/map.component';
+import { ChartComponent } from './chart/chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     ToolbarComponent,
     PropertyComponent,
     SearchResultsComponent,
-    MapComponent
+    MapComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    CoreModule
+    CoreModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
