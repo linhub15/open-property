@@ -292,6 +292,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/localize@npm:9.1.13":
+  version: 9.1.13
+  resolution: "@angular/localize@npm:9.1.13"
+  dependencies:
+    "@babel/core": 7.8.3
+    glob: 7.1.2
+    yargs: ^16.1.1
+  bin:
+    localize-translate: src/tools/src/translate/main.js
+  checksum: 4ad79b104995b1b2f034096d69b9707d11002401b899f46b16ca84e33c88d2953be578d3df412f84cbc77537316d9501e8e774a2fefe5ce5a59c3be673da5b51
+  languageName: node
+  linkType: hard
+
 "@angular/material@npm:^8.1.1":
   version: 8.2.3
   resolution: "@angular/material@npm:8.2.3"
@@ -364,6 +377,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/core@npm:7.8.3":
+  version: 7.8.3
+  resolution: "@babel/core@npm:7.8.3"
+  dependencies:
+    "@babel/code-frame": ^7.8.3
+    "@babel/generator": ^7.8.3
+    "@babel/helpers": ^7.8.3
+    "@babel/parser": ^7.8.3
+    "@babel/template": ^7.8.3
+    "@babel/traverse": ^7.8.3
+    "@babel/types": ^7.8.3
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.1
+    json5: ^2.1.0
+    lodash: ^4.17.13
+    resolve: ^1.3.2
+    semver: ^5.4.1
+    source-map: ^0.5.0
+  checksum: 57228193e26835430b30fbc3a1e78acdfb66d42a147e2d3335b77f677cef6803c67980ab5a466a51a4f7064fe70d1f2aa22f712a8a83fd078556488ba06bd505
+  languageName: node
+  linkType: hard
+
 "@babel/core@npm:7.9.0":
   version: 7.9.0
   resolution: "@babel/core@npm:7.9.0"
@@ -423,7 +459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:^7.16.7, @babel/generator@npm:^7.16.8, @babel/generator@npm:^7.4.0, @babel/generator@npm:^7.9.0":
+"@babel/generator@npm:^7.16.7, @babel/generator@npm:^7.16.8, @babel/generator@npm:^7.4.0, @babel/generator@npm:^7.8.3, @babel/generator@npm:^7.9.0":
   version: 7.16.8
   resolution: "@babel/generator@npm:7.16.8"
   dependencies:
@@ -653,7 +689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.16.7, @babel/helpers@npm:^7.9.0":
+"@babel/helpers@npm:^7.16.7, @babel/helpers@npm:^7.8.3, @babel/helpers@npm:^7.9.0":
   version: 7.16.7
   resolution: "@babel/helpers@npm:7.16.7"
   dependencies:
@@ -675,7 +711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.16.7, @babel/parser@npm:^7.16.8, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.8.6, @babel/parser@npm:^7.9.0":
+"@babel/parser@npm:^7.16.7, @babel/parser@npm:^7.16.8, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.8.3, @babel/parser@npm:^7.8.6, @babel/parser@npm:^7.9.0":
   version: 7.16.8
   resolution: "@babel/parser@npm:7.16.8"
   bin:
@@ -1368,7 +1404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:^7.16.7, @babel/template@npm:^7.4.0, @babel/template@npm:^7.8.6":
+"@babel/template@npm:^7.16.7, @babel/template@npm:^7.4.0, @babel/template@npm:^7.8.3, @babel/template@npm:^7.8.6":
   version: 7.16.7
   resolution: "@babel/template@npm:7.16.7"
   dependencies:
@@ -1379,7 +1415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.16.7, @babel/traverse@npm:^7.16.8, @babel/traverse@npm:^7.4.3, @babel/traverse@npm:^7.9.0":
+"@babel/traverse@npm:^7.16.7, @babel/traverse@npm:^7.16.8, @babel/traverse@npm:^7.4.3, @babel/traverse@npm:^7.8.3, @babel/traverse@npm:^7.9.0":
   version: 7.16.8
   resolution: "@babel/traverse@npm:7.16.8"
   dependencies:
@@ -5350,6 +5386,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:7.1.2":
+  version: 7.1.2
+  resolution: "glob@npm:7.1.2"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 821460a6cbd4e1f7feff8c24fb3eaecc2014569bd7dfd80c411fe15a5ec6f23cfdb7181574220fb52f8164cb8e9c558b68a36def4aa2a6b971641e838b8b7675
+  languageName: node
+  linkType: hard
+
 "glob@npm:7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
@@ -6833,7 +6883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.1.2":
+"json5@npm:^2.1.0, json5@npm:^2.1.2":
   version: 2.2.0
   resolution: "json5@npm:2.2.0"
   dependencies:
@@ -8296,6 +8346,7 @@ __metadata:
     "@angular/forms": ^9.1.13
     "@angular/google-maps": ^9.1.13
     "@angular/language-service": ^9.1.13
+    "@angular/localize": 9.1.13
     "@angular/material": ^8.1.1
     "@angular/platform-browser": ^9.1.13
     "@angular/platform-browser-dynamic": ^9.1.13
