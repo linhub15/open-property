@@ -162,19 +162,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^9.2.4":
-  version: 9.2.4
-  resolution: "@angular/cdk@npm:9.2.4"
+"@angular/cdk@npm:^10.2.7":
+  version: 10.2.7
+  resolution: "@angular/cdk@npm:10.2.7"
   dependencies:
     parse5: ^5.0.0
+    tslib: ^2.0.0
   peerDependencies:
-    "@angular/common": ^9.0.0 || ^10.0.0-0
-    "@angular/core": ^9.0.0 || ^10.0.0-0
-    tslib: ^1.9.0
+    "@angular/common": ^10.0.0 || ^11.0.0-0
+    "@angular/core": ^10.0.0 || ^11.0.0-0
   dependenciesMeta:
     parse5:
       optional: true
-  checksum: 1ec2df7a0cd9a415980d22b25545d4ace13204341dc1a3ad41e911c688a01b5f5feb2a3b0404f119757e11b10ace37be84c57107909cedc9126a9448f6c595ca
+  checksum: 9d23e6384b47bb56af70e9abe286a06603bad6594f30371507614ffcd9393b151e1b6463de647bea3bebbd3b2a3e6fc2af844a4cc8ea6a5516d21d69e1d2b7a8
   languageName: node
   linkType: hard
 
@@ -321,17 +321,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/material@npm:^9.2.4":
-  version: 9.2.4
-  resolution: "@angular/material@npm:9.2.4"
+"@angular/material@npm:^10.2.7":
+  version: 10.2.7
+  resolution: "@angular/material@npm:10.2.7"
+  dependencies:
+    tslib: ^2.0.0
   peerDependencies:
-    "@angular/animations": ^9.0.0 || ^10.0.0-0
-    "@angular/cdk": 9.2.4
-    "@angular/common": ^9.0.0 || ^10.0.0-0
-    "@angular/core": ^9.0.0 || ^10.0.0-0
-    "@angular/forms": ^9.0.0 || ^10.0.0-0
-    tslib: ^1.9.0
-  checksum: 8f5c32bb0f6fb534332c34ea9a9066184cebf0ab236f6053601e4b6b1ce310f1f230179ba93be26b00f0504ab652fb38868365c1685944e7ae73b03372557ab9
+    "@angular/animations": ^10.0.0 || ^11.0.0-0
+    "@angular/cdk": 10.2.7
+    "@angular/common": ^10.0.0 || ^11.0.0-0
+    "@angular/core": ^10.0.0 || ^11.0.0-0
+    "@angular/forms": ^10.0.0 || ^11.0.0-0
+  checksum: 1e6e662ab27b3ccbaed0fd7aaae802894f37c062eedebbde3289342c61a8f6dafbd4570a5d2c028eebaf9d42d761448d67ea5a184318cdf42d40127cc21aa804
   languageName: node
   linkType: hard
 
@@ -8503,7 +8504,7 @@ __metadata:
   dependencies:
     "@angular-devkit/build-angular": ~0.1002.4
     "@angular/animations": ^10.2.5
-    "@angular/cdk": ^9.2.4
+    "@angular/cdk": ^10.2.7
     "@angular/cli": ~10.2.4
     "@angular/common": ^10.2.5
     "@angular/compiler": ^10.2.5
@@ -8513,7 +8514,7 @@ __metadata:
     "@angular/google-maps": ^9.1.13
     "@angular/language-service": ^10.2.5
     "@angular/localize": 10.2.5
-    "@angular/material": ^9.2.4
+    "@angular/material": ^10.2.7
     "@angular/platform-browser": ^10.2.5
     "@angular/platform-browser-dynamic": ^10.2.5
     "@angular/router": ^10.2.5
