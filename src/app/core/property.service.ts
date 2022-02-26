@@ -9,7 +9,7 @@ import { PropertyInfo } from './property-info.model';
 @Injectable()
 export class PropertyService {
   #consumer = new Consumer('data.edmonton.ca', {
-    datasetId: 'qi6a-xuwt'
+    datasetId: 'qi6a-xuwt',
   });
 
   #selectedProperty = new BehaviorSubject<PropertyInfo>(null);
@@ -30,20 +30,23 @@ export class PropertyService {
 
   private fetchPropertyHistory(accountNumber: string) {
     this.fetchProperties(accountNumber)
-    .pipe( // Add the methods from the class to plain object
-      map(histories =>
-        Array.from(histories, history =>
-          Object.setPrototypeOf(history, new PropertyHistory())
+      .pipe(
+        // Add the methods from the class to plain object
+        map((histories) =>
+          Array.from(histories, (history) =>
+            Object.setPrototypeOf(history, new PropertyHistory())
+          )
+        ),
+        map((histories: PropertyHistory[]) =>
+          histories.sort((a, b) => a.assessment_year - b.assessment_year)
         )
-      ),
-      map((histories:PropertyHistory[]) => histories
-        .sort((a,b) => a.assessment_year - b.assessment_year)
       )
-    )
-    .subscribe(histories => this.#propertyHistories.next(histories));
+      .subscribe((histories) => this.#propertyHistories.next(histories));
   }
 
-  private fetchProperties(accountNumber: string): Observable<PropertyHistory[]> {
+  private fetchProperties(
+    accountNumber: string
+  ): Observable<PropertyHistory[]> {
     return this.#consumer
       .query()
       .where(`account_number like '${accountNumber}'`)

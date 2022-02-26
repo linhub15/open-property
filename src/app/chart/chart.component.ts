@@ -14,13 +14,13 @@ const labels = [
   '2018',
   '2019',
   '2020',
-  '2021'
+  '2021',
 ];
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
   data: ChartData;
@@ -29,8 +29,8 @@ export class ChartComponent implements OnInit {
     layout: { autoPadding: true },
     plugins: {
       title: { text: 'Assessment Data', display: true },
-      legend: { display: false }
-    }
+      legend: { display: false },
+    },
   };
 
   constructor(private propertyService: PropertyService) {}
@@ -38,10 +38,10 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.propertyService.propertyHistories$
       .pipe(
-        map(histories => {
+        map((histories) => {
           if (!histories) return;
 
-          const data = histories.map(history =>
+          const point = histories.map((history) =>
             this.propertyHistoryToPoint(history)
           );
 
@@ -50,22 +50,22 @@ export class ChartComponent implements OnInit {
               {
                 weight: 100,
                 label: 'assessment',
-                data: data,
+                data: point,
                 clip: 20,
                 pointRadius: 5,
-                cubicInterpolationMode: 'monotone'
-              } as ChartDataset
-            ]
+                cubicInterpolationMode: 'monotone',
+              } as ChartDataset,
+            ],
           };
         })
       )
-      .subscribe(chartData => (this.data = chartData));
+      .subscribe((chartData) => (this.data = chartData));
   }
 
   private propertyHistoryToPoint(history: PropertyHistory) {
     return {
       x: history.assessment_year,
-      y: history.assessed_value
+      y: history.assessed_value,
     };
   }
 }

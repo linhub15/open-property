@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../core/property.service';
 import { Observable } from 'rxjs';
 import { SearchService } from '../core/search.service';
@@ -7,9 +7,9 @@ import { PropertyInfo } from '../core/property-info.model';
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent {
+export class SearchResultsComponent implements OnInit {
   public properties$: Observable<PropertyInfo[]>;
 
   constructor(

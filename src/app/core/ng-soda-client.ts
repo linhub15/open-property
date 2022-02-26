@@ -15,13 +15,9 @@ export interface SodaOptions {
   datasetId?: string;
 }
 
-export function and(...clause: string[]) {
-  return `AND (${clause.join(' ')})`;
-}
+export const and = (...clause: string[]) => `AND (${clause.join(' ')})`;
 
-export function or(...clause: string[]) {
-  return `OR (${clause.join(' ')})`;
-}
+export const or = (...clause: string[]) => `OR (${clause.join(' ')})`;
 
 export class Consumer {
   public connection: Connection;
@@ -32,7 +28,9 @@ export class Consumer {
 
   /**
    * Creates a new Query for a given datasetId
+   *
    * @param datasetId optional if provided in Consumer constructor
+   *
    */
   query(datasetId: string = this.options.datasetId) {
     if (!datasetId) {
@@ -55,9 +53,7 @@ class Connection {
 
   request<T>(query: Query): Observable<T[]> {
     const url = query.getUrl();
-    const response = fetch(url).then(
-      response => response.json() as Promise<T[]>
-    );
+    const response = fetch(url).then((r) => r.json() as Promise<T[]>);
     return from(response);
   }
 }
@@ -114,7 +110,7 @@ class Query {
     const query: SoqlComponents = {
       select: this._select.length > 0 ? this._select.join(', ') : null,
       where: this._where.length > 0 ? this._where.join(' ') : this._where[0],
-      limit: this._limit.length || this._limit
+      limit: this._limit.length || this._limit,
     };
     return this.serializeSoqlComponents(query);
   }

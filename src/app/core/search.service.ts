@@ -7,17 +7,19 @@ import { PropertyInfo } from './property-info.model';
 @Injectable()
 export class SearchService {
   #consumer = new Consumer('data.edmonton.ca', {
-    datasetId: 'dkk9-cj3x'
+    datasetId: 'dkk9-cj3x',
   });
-   
+
   #searchValue = new BehaviorSubject<string>('');
   #searchResults = new BehaviorSubject<PropertyInfo[]>(null);
 
   searchValue$ = this.#searchValue.asObservable();
   searchResults$ = this.#searchResults.asObservable();
-  
+
   constructor() {
-    this.#searchValue.subscribe(searchValue => this.updateSearchResults(searchValue));
+    this.#searchValue.subscribe((searchValue) =>
+      this.updateSearchResults(searchValue)
+    );
   }
 
   search(searchValue: string) {
@@ -37,13 +39,15 @@ export class SearchService {
 
     searchValue = searchValue.toUpperCase();
     this.fetchAssessments(searchValue)
-    .pipe( // Add the methods from the class to plain object
-      map(properties =>
-        Array.from(properties, property =>
-          Object.setPrototypeOf(property, new PropertyInfo())
+      .pipe(
+        // Add the methods from the class to plain object
+        map((properties) =>
+          Array.from(properties, (property) =>
+            Object.setPrototypeOf(property, new PropertyInfo())
+          )
         )
       )
-    ).subscribe(properties => this.#searchResults.next(properties));
+      .subscribe((properties) => this.#searchResults.next(properties));
   }
 
   private fetchAssessments(searchValue: string): Observable<PropertyInfo[]> {

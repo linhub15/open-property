@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/naming-convention: "off" */
 /** Historical Property Data
  * https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Historical-/qi6a-xuwt
  */

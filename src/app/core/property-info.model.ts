@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/naming-convention: "off" */
 /** Property Information Current Calendar Year
  * https://data.edmonton.ca/City-Administration/Property-Information-Current-Calendar-Year-/dkk9-cj3x
  *
