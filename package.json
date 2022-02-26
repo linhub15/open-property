@@ -4,7 +4,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production",
-    "start-prod": "http-server ./dist"
+    "prod": "yarn build && http-server ./dist"
   },
   "private": true,
   "dependencies": {

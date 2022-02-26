@@ -24,7 +24,7 @@ import { NgChartsModule } from 'ng2-charts';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' },
-  { path: '**', redirectTo: '/search', pathMatch: 'full' }
+  { path: '**', redirectTo: '/search', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     PropertyComponent,
     SearchResultsComponent,
     MapComponent,
-    ChartComponent
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +49,9 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     CoreModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
