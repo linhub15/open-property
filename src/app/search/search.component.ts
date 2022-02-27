@@ -5,10 +5,11 @@ import { SearchService } from '../core/search.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
   public searchValue$: Observable<string>;
+  #inputTimeoutId: number;
 
   constructor(private searchService: SearchService) {}
 
@@ -17,7 +18,11 @@ export class SearchComponent implements OnInit {
   }
 
   search(searchValue: string) {
-    this.searchService.search(searchValue);
+    window.clearTimeout(this.#inputTimeoutId);
+    this.#inputTimeoutId = window.setTimeout(
+      () => this.searchService.search(searchValue),
+      400
+    );
   }
 
   clear() {
