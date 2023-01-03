@@ -1,25 +1,26 @@
 # Open Property
 
-A simple tool to see a property assessment data. (Currently only supports Edmonton, Alberta)
+A simple tool to see a property assessment data. (Currently only supports
+Edmonton, Alberta)
+
+Built with [Fresh](https://fresh.deno.dev/) and [Deno](https://deno.land/)
+
+```
+deno task start
+```
 
 Public data comes from City of Edmonton's open data portal.
 
 - `https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Historical-/qi6a-xuwt`
 
-## Development
+### Bugs
 
-`yarn` - restore dependencies
+- desktop view
+- make search feature differentiate suite # in the search bar
 
-`yarn start` - starts dev server
+### Ideas
 
-`yarn build` - builds production files into `./dist`
-
-`yarn prod` - test production files
-
-## Manage Google Api Key
-
-- https://console.cloud.google.com/apis/credentials
-
-## Credits
-
-- Icons from Font Awesome [license](https://fontawesome.com/license)
+- show property type (residential ... etc)
+- check out Fresh Charts: https://deno.land/x/fresh_charts@0.2.1
+- add map if it adds value
+- add a logo + favicon

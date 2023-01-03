@@ -1,10 +1,5 @@
 {
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "search.exclude": {
-    ".yarn": true,
-    "**/bower_components": true,
-    "**/node_modules": true,
-    "yarn.lock": true
-  }
+  "deno.enable": true,
+  "deno.lint": true,
+  "editor.defaultFormatter": "denoland.vscode-deno"
 }
