@@ -5,7 +5,7 @@ import { PropertyInfo } from "./property_info.model.ts";
 
 function useSearchResults(search: string | undefined) {
   const maxResults = 5;
-  const [results, setResults] = useState<PropertyInfo[]>([]);
+  const [results, setResults] = useState<PropertyInfo[]>();
 
   const consumer = new Consumer("https://data.edmonton.ca", {
     datasetId: "dkk9-cj3x",
@@ -13,7 +13,7 @@ function useSearchResults(search: string | undefined) {
 
   useEffect(() => {
     if (!search) {
-      setResults([]);
+      setResults(undefined);
       return;
     }
 

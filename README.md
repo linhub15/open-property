@@ -13,10 +13,10 @@ Public data comes from City of Edmonton's open data portal.
 
 - `https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Historical-/qi6a-xuwt`
 
-### Bugs
+### Bugs & features
 
-- desktop view
 - make search feature differentiate suite # in the search bar
+- enable keyboard enter and arrow keys for searching
 
 ### Ideas
 
@@ -24,3 +24,4 @@ Public data comes from City of Edmonton's open data portal.
 - check out Fresh Charts: https://deno.land/x/fresh_charts@0.2.1
 - add map if it adds value
 - add a logo + favicon
+- add recently viewed addresses

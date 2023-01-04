@@ -23,15 +23,15 @@ export default function AddressSearch() {
         <SearchInput onInput={(e) => handleInput(e.currentTarget.value)} />
       </header>
 
-      {results?.length > 0 &&
+      {results && results?.length > 0 &&
         (
           <div class="mt-4">
             <SearchResultContainer searchResults={results} />
           </div>
         )}
 
-      {search && !results?.length &&
-        <p class="dark:text-white">Can't find that address</p>}
+      {search && results?.length === 0 &&
+        <p class="p-4 dark:text-white">Can't find {search}, try a different address</p>}
     </div>
   );
 }
