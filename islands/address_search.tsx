@@ -32,7 +32,7 @@ export default function AddressSearch() {
       </header>
 
       <div
-        class={`overflow-y-hidden transition-[max-height] ${
+        class={`overflow-hidden transition-[max-height] ${
           search && search?.length > 0 ? "max-h-96" : "max-h-0"
         }`}
       >
