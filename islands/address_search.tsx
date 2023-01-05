@@ -14,6 +14,7 @@ export default function AddressSearch() {
     setSearchDelay(NaN);
 
     if (!value) {
+      setLoading(false);
       return setSearch(undefined);
     }
 
@@ -33,7 +34,7 @@ export default function AddressSearch() {
 
       <div
         class={`overflow-hidden transition-[max-height] ${
-          search && search?.length > 0 ? "max-h-96" : "max-h-0"
+          search || loading ? "max-h-96" : "max-h-0"
         }`}
       >
         <div
