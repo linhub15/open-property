@@ -3,7 +3,7 @@ import { useEffect, useState } from "preact/hooks";
 import { and, Consumer, or } from "./soda_client.ts";
 import { PropertyInfo } from "./property_info.model.ts";
 
-function useSearchResults(search: string | undefined) {
+function useSearchResults(search: string | undefined, done: () => void) {
   const maxResults = 5;
   const [results, setResults] = useState<PropertyInfo[]>();
 
@@ -38,6 +38,7 @@ function useSearchResults(search: string | undefined) {
         .getRows<PropertyInfo>();
 
       setResults(result);
+      done();
     };
 
     const noSpaceQuery = async () => {
@@ -52,6 +53,7 @@ function useSearchResults(search: string | undefined) {
         .getRows<PropertyInfo>();
 
       setResults(result);
+      done();
     };
 
     if (!/\s/g.test(search || "")) {
@@ -59,6 +61,7 @@ function useSearchResults(search: string | undefined) {
     } else {
       hasSpaceQuery();
     }
+
   }, [search]);
 
   return results;

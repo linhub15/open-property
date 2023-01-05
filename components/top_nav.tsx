@@ -3,7 +3,7 @@ import GithubIcon from "./icons/github_icon.tsx";
 
 export default function TopNav() {
   return (
-    <nav class="p-3 border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+    <nav class="p-3 border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700">
       <div class="max-w-screen-lg mx-auto flex flex-wrap items-center justify-between ">
         <h1 class="self-center text-xl whitespace-nowrap dark:text-white">
           <a href="/">Open Property</a>
