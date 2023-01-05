@@ -30,7 +30,12 @@ export default function AddressSearch() {
       <header>
         <SearchInput onInput={(e) => handleInput(e.currentTarget.value)} />
       </header>
-      <div class="mt-4">
+
+      <div
+        class={`overflow-y-hidden transition-[max-height] ${
+          search && search?.length > 0 ? "max-h-96" : "max-h-0"
+        }`}
+      >
         <div
           role="status"
           class={`px-4 animate-pulse ${!loading && "hidden"}`}
@@ -47,11 +52,16 @@ export default function AddressSearch() {
         </div>
 
         {!loading && results && results?.length > 0 &&
-          <SearchResultContainer searchResults={results} />}
+          (
+            <div class="mt-4" role="results">
+              <SearchResultContainer searchResults={results} />
+            </div>
+          )}
 
+        {/* Error States: Not found, todo(hubert): time out */}
         {!loading && results?.length === 0 &&
           (
-            <p class="px-4 dark:text-white">
+            <p class="mt-4 px-4 dark:text-white">
               Can't find {search}, try a different address
             </p>
           )}
