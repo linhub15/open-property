@@ -1,13 +1,14 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
-import AppTemplate from "../components/app_template.tsx";
+import PageLayout from "../components/page_layout.tsx";
 import AssessmentChart from "../islands/assessment_chart.tsx";
 
 import { Consumer } from "../src/soda_client.ts";
 import { PropertyHistory } from "../src/property_history.model.ts";
 import { PropertyInfo } from "../src/property_info.model.ts";
 import { formatAddress } from "../src/format_address.ts";
+import TopActionBar from "../components/top_action_bar.tsx";
 
 type Property = {
   info: PropertyInfo | undefined;
@@ -71,32 +72,25 @@ export default function PropertyPage(
         <title>Open Property | {formatAddress(data.info)}</title>
       </Head>
 
-      <AppTemplate>
-        <h1 class="mb-3 text-center dark:text-white">
-          {formatAddress(data.info)}
-        </h1>
+      <PageLayout header={<TopActionBar></TopActionBar>}>
+        <div class="md:flex md:flex-row">
+          <div class="flex flex-col justify-center md:w-1/3 my-8 mx-4 py-3 text-center rounded-lg shadow-lg dark:bg-gray-800">
+            <h1 class="mb-3 dark:text-white">
+              {formatAddress(data.info)}
+            </h1>
+            <p class="text-5xl text-gray-700 dark:text-gray-400">
+              ${data.history.at(-1)?.assessed_value}
+            </p>
+            <small class="text-gray-800 dark:text-gray-500">
+              {data.history.at(-1)?.assessment_year}
+            </small>
+          </div>
 
-        <div class="my-8 text-center">
-          <small class="text-gray-800 dark:text-gray-500">
-            {data.history.at(-1)?.assessment_year}
-          </small>
-          <p class="text-5xl text-center text-gray-700 dark:text-gray-400">
-            ${data.history.at(-1)?.assessed_value}
-          </p>
+          <div class="md:w-2/3">
+            <AssessmentChart histories={data.history} />
+          </div>
         </div>
-
-        <AssessmentChart histories={data.history} />
-
-        <div class="mt-12 text-center">
-          <a
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2
-              dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            href="/"
-          >
-            Search again
-          </a>
-        </div>
-      </AppTemplate>
+      </PageLayout>
     </>
   );
 }

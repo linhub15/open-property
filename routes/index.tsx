@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
-import AppTemplate from "../components/app_template.tsx";
+import AppTemplate from "../components/page_layout.tsx";
+import TopNav from "../components/top_nav.tsx";
 import AddressSearch from "../islands/address_search.tsx";
 
 export default function HomePage() {
@@ -9,7 +10,7 @@ export default function HomePage() {
         <title>Open Property | Edmonton</title>
       </Head>
 
-      <AppTemplate>
+      <AppTemplate header={<TopNav />}>
         <AddressSearch />
       </AppTemplate>
     </>

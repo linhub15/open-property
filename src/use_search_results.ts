@@ -61,7 +61,6 @@ function useSearchResults(search: string | undefined, done: () => void) {
     } else {
       hasSpaceQuery();
     }
-
   }, [search]);
 
   return results;

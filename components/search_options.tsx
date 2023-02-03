@@ -1,13 +1,13 @@
 import { formatAddress } from "../src/format_address.ts";
 import { PropertyInfo } from "../src/property_info.model.ts";
 
-export default function SearchResultContainer(
+export default function SearchOptions(
   { searchResults: properties }: { searchResults: PropertyInfo[] },
 ) {
   return (
     <div>
       <section>
-        <div class="text-gray-900 dark:text-white">
+        <div class="text-gray-900 dark:text-white px-4">
           {properties.map((property) => (
             <a
               class="block rounded-md

@@ -14,6 +14,6 @@ import twindConfig from "./twind.config.ts";
 await start(manifest, {
   plugins: [
     twindPlugin(twindConfig),
-    googleAnalyticsPlugin("G-LG7XQ7H5RG")
+    googleAnalyticsPlugin("G-LG7XQ7H5RG"),
   ],
 });

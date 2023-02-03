@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import SearchInput from "../components/search_input.tsx";
-import SearchResultContainer from "../components/search_result_container.tsx";
+import SearchOptions from "../components/search_options.tsx";
 import { useSearchResults } from "../src/use_search_results.ts";
 
 export default function AddressSearch() {
@@ -55,7 +55,7 @@ export default function AddressSearch() {
         {!loading && results && results?.length > 0 &&
           (
             <div class="mt-4" role="results">
-              <SearchResultContainer searchResults={results} />
+              <SearchOptions searchResults={results} />
             </div>
           )}
 

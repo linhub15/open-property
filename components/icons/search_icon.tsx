@@ -6,7 +6,7 @@ export default function SearchIcon() {
       viewBox="0 0 24 24"
       stroke="currentColor"
       aria-hidden="true"
-      class="w-5 h-5 text-gray-500 dark:text-gray-400"
+      class="w-6 h-6"
     >
       <path
         stroke-linecap="round"
