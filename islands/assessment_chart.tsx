@@ -1,6 +1,11 @@
 import { useEffect, useRef } from "preact/hooks";
-import { Chart, ChartDataset, ChartOptions, registerables } from "chartjs";
-import { PropertyHistory } from "../src/property_history.model.ts";
+import {
+  Chart,
+  type ChartDataset,
+  type ChartOptions,
+  registerables,
+} from "chartjs";
+import type { PropertyHistory } from "../src/property_history.model.ts";
 
 export default function AssessmentChart(
   props: { histories: PropertyHistory[] },
@@ -35,9 +40,9 @@ export default function AssessmentChart(
         ],
       },
     });
-  }, []);
+  }, [props.histories]);
 
-  return <canvas ref={canvas}></canvas>;
+  return <canvas ref={canvas} />;
 }
 
 function asPoints(history: PropertyHistory) {

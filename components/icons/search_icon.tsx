@@ -8,6 +8,7 @@ export default function SearchIcon() {
       aria-hidden="true"
       class="w-6 h-6"
     >
+      <title>Search</title>
       <path
         stroke-linecap="round"
         stroke-linejoin="round"

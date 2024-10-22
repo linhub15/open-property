@@ -8,6 +8,7 @@ export default function DataIcon() {
       stroke="currentColor"
       class="w-6 h-6"
     >
+      <title>Data</title>
       <path
         stroke-linecap="round"
         stroke-linejoin="round"

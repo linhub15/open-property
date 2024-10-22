@@ -8,7 +8,7 @@ export default function GoogleMap() {
 
   return (
     <>
-      <div ref={ref}></div>
+      <div ref={ref} />
     </>
   );
 }

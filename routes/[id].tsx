@@ -1,12 +1,12 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
 import PageLayout from "../components/page_layout.tsx";
 import AssessmentChart from "../islands/assessment_chart.tsx";
 
 import { Consumer } from "../src/soda_client.ts";
-import { PropertyHistory } from "../src/property_history.model.ts";
-import { PropertyInfo } from "../src/property_info.model.ts";
+import type { PropertyHistory } from "../src/property_history.model.ts";
+import type { PropertyInfo } from "../src/property_info.model.ts";
 import { formatAddress } from "../src/format_address.ts";
 import TopActionBar from "../components/top_action_bar.tsx";
 
@@ -61,7 +61,6 @@ export const handler: Handlers = {
 export default function PropertyPage(
   { params, data }: PageProps<Property | undefined>,
 ) {
-  const { id } = params;
   if (!data || !data.info || !data.history) {
     return <h1>Property {params} not found</h1>;
   }
@@ -72,7 +71,7 @@ export default function PropertyPage(
         <title>Open Property | {formatAddress(data.info)}</title>
       </Head>
 
-      <PageLayout header={<TopActionBar></TopActionBar>}>
+      <PageLayout header={<TopActionBar/>}>
         <div class="md:flex md:flex-row">
           <div class="flex flex-col justify-center md:w-1/3 my-8 mx-4 py-3 text-center rounded-lg shadow-lg dark:bg-gray-800">
             <h1 class="mb-3 dark:text-white">

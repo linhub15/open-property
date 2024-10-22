@@ -1,4 +1,4 @@
-import { ComponentChildren } from "preact";
+import type { ComponentChildren } from "preact";
 
 export default function PageLayout(
   props: { children: ComponentChildren; header: ComponentChildren },

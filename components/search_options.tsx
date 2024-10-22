@@ -1,5 +1,5 @@
 import { formatAddress } from "../src/format_address.ts";
-import { PropertyInfo } from "../src/property_info.model.ts";
+import type { PropertyInfo } from "../src/property_info.model.ts";
 
 export default function SearchOptions(
   { searchResults: properties }: { searchResults: PropertyInfo[] },
@@ -10,6 +10,7 @@ export default function SearchOptions(
         <div class="text-gray-900 dark:text-white px-4">
           {properties.map((property) => (
             <a
+              key={property.account_number}
               class="block rounded-md
                 py-4 px-4 w-full font-medium cursor-pointer
                 hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700

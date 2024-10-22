@@ -8,6 +8,7 @@ export default function ShareIcon() {
       stroke="currentColor"
       class="w-6 h-6"
     >
+      <title>Share</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

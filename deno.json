@@ -1,11 +1,29 @@
 {
   "tasks": {
-    "start": "deno run -A --no-check --watch=static/,routes/ dev.ts"
+    "dev": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "start": "deno run -A main.ts",
+    "update": "deno run -A -r jsr:@fresh/update ."
   },
-  "importMap": "./import_map.json",
-  "lock": false,
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "chartjs": "https://esm.sh/chart.js@4.1.1",
+    "preact": "npm:preact@^10.24.1",
+    "tailwindcss": "npm:tailwindcss@^3.4.14"
+  },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
-  }
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ]
 }

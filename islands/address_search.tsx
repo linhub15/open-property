@@ -5,13 +5,13 @@ import { useSearchResults } from "../src/use_search_results.ts";
 
 export default function AddressSearch() {
   const [search, setSearch] = useState<string>();
-  const [searchDelay, setSearchDelay] = useState<number>(NaN);
+  const [searchDelay, setSearchDelay] = useState<number>(Number.NaN);
   const [loading, setLoading] = useState<boolean>(false);
   const results = useSearchResults(search, () => setLoading(false));
 
   const handleInput = (value: string) => {
     clearTimeout(searchDelay);
-    setSearchDelay(NaN);
+    setSearchDelay(Number.NaN);
 
     if (!value) {
       setLoading(false);
