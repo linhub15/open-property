@@ -11,6 +11,7 @@
     "preact": "npm:preact@^10.24.1",
     "tailwindcss": "npm:tailwindcss@^3.4.14"
   },
+  "lock": false,
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
@@ -18,8 +19,7 @@
   "lint": {
     "rules": {
       "tags": [
-        "fresh",
-        "recommended"
+        "fresh"
       ]
     }
   },
