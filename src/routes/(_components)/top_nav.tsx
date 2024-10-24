@@ -6,6 +6,7 @@ export function TopNav() {
     <nav class="max-w-screen-lg mx-auto flex flex-wrap items-center justify-between ">
       <h1 class="self-center text-xl whitespace-nowrap dark:text-white">
         <a href="/">Open Property</a>
+        <span class="text-sm px-4 font-medium">by Hubert Lin</span>
       </h1>
       <div class="flex flex-row gap-3 items-center">
         <a

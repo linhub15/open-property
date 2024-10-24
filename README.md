@@ -21,8 +21,11 @@ Public data comes from City of Edmonton's open data portal.
 
 ### Ideas
 
+- calculate tax rate on the property 
+  - https://www.edmonton.ca/residential_neighbourhoods/property-taxes?utm_source=virtualaddress&utm_campaign=taxrates#stack135584
 - show property type (residential ... etc)
 - check out Fresh Charts: https://deno.land/x/fresh_charts@0.2.1
 - add map if it adds value
 - add a logo + favicon
 - add recently viewed addresses
+
