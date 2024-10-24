@@ -1,7 +1,7 @@
-import { formatAddress } from "../src/format_address.ts";
-import type { PropertyInfo } from "../src/property_info.model.ts";
+import { formatAddress } from "../../lib/format_address.ts";
+import type { PropertyInfo } from "../../lib/data.edmonton.ca/property_info.type.ts";
 
-export default function SearchOptions(
+export function SearchOptions(
   { searchResults: properties }: { searchResults: PropertyInfo[] },
 ) {
   return (

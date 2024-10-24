@@ -1,7 +1,7 @@
-import DataIcon from "./icons/data_icon.tsx";
-import GithubIcon from "./icons/github_icon.tsx";
+import DataIcon from "../../components/icons/data_icon.tsx";
+import GithubIcon from "../../components/icons/github_icon.tsx";
 
-export default function TopNav() {
+export function TopNav() {
   return (
     <nav class="max-w-screen-lg mx-auto flex flex-wrap items-center justify-between ">
       <h1 class="self-center text-xl whitespace-nowrap dark:text-white">
@@ -14,6 +14,7 @@ export default function TopNav() {
           aria-label="github repository link"
           target="_blank"
           title="Github repository"
+          rel="noreferrer"
         >
           <GithubIcon />
         </a>
@@ -23,6 +24,7 @@ export default function TopNav() {
           aria-label="City of Edmonton Property Assessment Data"
           target="_blank"
           title="Open Edmonton Data Set"
+          rel="noreferrer"
         >
           <DataIcon />
         </a>

@@ -1,6 +1,6 @@
-import SearchIcon from "./icons/search_icon.tsx";
+import SearchIcon from "../../components/icons/search_icon.tsx";
 
-export default function TopActionBar() {
+export function TopActionBar() {
   return (
     <div class="max-w-screen-lg mx-auto">
       <a

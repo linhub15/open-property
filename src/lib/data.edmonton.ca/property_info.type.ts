@@ -2,7 +2,7 @@
  * Property Information Current Calendar Year
  * https://data.edmonton.ca/City-Administration/Property-Information-Current-Calendar-Year-/dkk9-cj3x
  */
-export interface PropertyInfo {
+export type PropertyInfo = {
   account_number: string;
   suite: string;
   house_number: string;
@@ -18,4 +18,4 @@ export interface PropertyInfo {
   ward: string;
   latitude: number;
   longitude: number;
-}
+};

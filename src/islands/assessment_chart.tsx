@@ -5,10 +5,10 @@ import {
   type ChartOptions,
   registerables,
 } from "chartjs";
-import type { PropertyHistory } from "../src/property_history.model.ts";
+import type { Property } from "../lib/data.edmonton.ca/property.type.ts";
 
 export default function AssessmentChart(
-  props: { histories: PropertyHistory[] },
+  props: { histories?: Partial<Property>[] },
 ) {
   const canvas = useRef<HTMLCanvasElement>(null);
 
@@ -32,22 +32,18 @@ export default function AssessmentChart(
           {
             weight: 100,
             label: "assessment",
-            data: props.histories.map(asPoints),
+            data: props.histories?.map((history) => ({
+              x: history.assessment_year?.toString(),
+              y: history.assessed_value,
+            })),
             clip: 20,
             pointRadius: 4,
             cubicInterpolationMode: "monotone",
-          } as ChartDataset,
+          } as ChartDataset<"line", { x: string; y: number }[]>,
         ],
       },
     });
   }, [props.histories]);
 
   return <canvas ref={canvas} />;
-}
-
-function asPoints(history: PropertyHistory) {
-  return {
-    x: history.assessment_year,
-    y: history.assessed_value,
-  };
 }

@@ -6,12 +6,13 @@ Edmonton, Alberta)
 Built with [Fresh](https://fresh.deno.dev/) and [Deno](https://deno.land/)
 
 ```
-deno task start
+deno task dev
 ```
 
 Public data comes from City of Edmonton's open data portal.
 
 - `https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Historical-/qi6a-xuwt`
+- `https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Current-Calendar-Year-/q7d6-ambg`
 
 ### Bugs & features
 

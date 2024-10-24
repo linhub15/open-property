@@ -1,12 +1,13 @@
 {
   "tasks": {
-    "dev": "deno run -A --watch=static/,routes/ dev.ts",
+    "dev": "deno run -A --watch=sr/static/,src/routes/ src/dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno run -A main.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "@valibot/valibot": "jsr:@valibot/valibot@^0.42.1",
     "chartjs": "https://esm.sh/chart.js@4.1.1",
     "preact": "npm:preact@^10.24.1",
     "tailwindcss": "npm:tailwindcss@^3.4.14"

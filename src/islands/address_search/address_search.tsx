@@ -1,9 +1,9 @@
 import { useState } from "preact/hooks";
-import SearchInput from "../components/search_input.tsx";
-import SearchOptions from "../components/search_options.tsx";
-import { useSearchResults } from "../src/use_search_results.ts";
+import { SearchInput } from "./search_input.tsx";
+import { SearchOptions } from "./search_options.tsx";
+import { useSearchResults } from "../../lib/use_search_results.ts";
 
-export default function AddressSearch() {
+export function AddressSearch() {
   const [search, setSearch] = useState<string>();
   const [searchDelay, setSearchDelay] = useState<number>(Number.NaN);
   const [loading, setLoading] = useState<boolean>(false);
@@ -54,7 +54,7 @@ export default function AddressSearch() {
 
         {!loading && results && results?.length > 0 &&
           (
-            <div class="mt-4" role="results">
+            <div class="mt-4">
               <SearchOptions searchResults={results} />
             </div>
           )}

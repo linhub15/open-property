@@ -1,7 +1,7 @@
 import type { JSX } from "preact";
-import SearchIcon from "./icons/search_icon.tsx";
+import SearchIcon from "../../components/icons/search_icon.tsx";
 
-export default function SearchInput(
+export function SearchInput(
   props: JSX.HTMLAttributes<HTMLInputElement>,
 ) {
   return (

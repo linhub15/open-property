@@ -4,8 +4,11 @@
 
 import * as $_id_ from "./routes/[id].tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $address_search from "./islands/address_search.tsx";
+import * as $address_search_address_search from "./islands/address_search/address_search.tsx";
+import * as $address_search_search_input from "./islands/address_search/search_input.tsx";
+import * as $address_search_search_options from "./islands/address_search/search_options.tsx";
 import * as $assessment_chart from "./islands/assessment_chart.tsx";
 import * as $google_map from "./islands/google_map.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -14,10 +17,15 @@ const manifest = {
   routes: {
     "./routes/[id].tsx": $_id_,
     "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
     "./routes/index.tsx": $index,
   },
   islands: {
-    "./islands/address_search.tsx": $address_search,
+    "./islands/address_search/address_search.tsx":
+      $address_search_address_search,
+    "./islands/address_search/search_input.tsx": $address_search_search_input,
+    "./islands/address_search/search_options.tsx":
+      $address_search_search_options,
     "./islands/assessment_chart.tsx": $assessment_chart,
     "./islands/google_map.tsx": $google_map,
   },

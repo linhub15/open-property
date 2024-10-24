@@ -9,9 +9,9 @@ interface SoqlComponents extends Record<string, string> {
   $limit: string;
 }
 
-export interface SodaOptions {
+export type SodaOptions = {
   datasetId: string;
-}
+};
 
 export const and = (...clause: string[]) => `AND (${clause.join(" ")})`;
 
@@ -84,12 +84,9 @@ class Query {
     return this;
   }
 
-  /**
-   * @returns https://data.edmonton.ca/resource/qi6a-xuwt.json
-   */
   getUrl() {
     const dataSite = this._consumer.dataSite;
-    const url = new URL(`${dataSite}/resource/${this._datasetId}.json`);
+    const url = new URL(`/resource/${this._datasetId}.json`, dataSite);
     url.search = this.buildSoqlQuery().toString();
     return url;
   }
