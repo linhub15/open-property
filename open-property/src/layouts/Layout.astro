@@ -1,14 +1,29 @@
+---
+import { TopNav } from '../components/top_nav';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+        <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="/src/styles.css" rel="stylesheet">
+
+        <title>Open Property</title>
 	</head>
 	<body>
-		<slot />
+		<>
+      <div class="bg-gray-50 dark:bg-gray-900 min-h-screen h-full">
+        <div class="p-3 border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700">
+          <TopNav />
+        </div>
+        <main class="max-w-screen-lg mx-3 mt-6 lg:mx-auto">
+          <slot />
+        </main>
+      </div>
+    </>
 	</body>
 </html>
 
